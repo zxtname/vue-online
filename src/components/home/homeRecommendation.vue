@@ -1,0 +1,51 @@
+<template>
+	<div class="homeRecommendation">
+		<div class="rectitle">
+			<img :src="imgUrl" class="int-logo">
+
+			<span style="font-size: 1.5rem;font-weight: bold;color: 10375C;">  - = 为你推荐 = -  </span>
+
+			<img :src="imgUrl2" class="int-logo">
+		</div>
+		<cards></cards>
+	</div>
+</template>
+
+<script>
+	import cards from '../common/cards.vue'
+	
+	export default {
+		name: 'homeRecommendation',
+		components:{
+			cards,
+		},
+		data() {
+			return {
+				imgUrl: require("../../assets/intl.png"),
+				imgUrl2: require("../../assets/intr.png")
+				
+			}
+		}
+	};
+</script>
+
+<style>
+	.homeRecommendation {
+		padding: 450px 0px 88px 0px;
+		/* z-index: -1; */
+		position: relative;
+	}
+	.rectitle{
+		display: flex;
+		align-items: center;
+		position: absolute;
+		Width:auto;
+		Height:37px;
+		Left: 465px;
+		Right: 0px;
+		Margin: auto;
+	}
+	.int-logo{
+		padding: 0px 20px;
+	}
+</style>
