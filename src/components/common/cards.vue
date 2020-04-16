@@ -1,75 +1,21 @@
 <template>
 	<div class="cards">
 		<ul class="course-list">
-			<li class="course-item">
+			<li v-for="(item,index) in recommendList" :key="index" class="course-item">
 				<div class="img-box">
-					<img src="https://img2.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg" />
+					<img :src="item.imgUrl" />
 					<div class="tags">
-						<span class="tag-item">临床医学</span>
+						<span class="tag-item">{{item.classfyName}}</span>
 					</div>
 				</div>
 				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
+					{{item.courseName}}
 				</p>
 				<p class="course-teacher">
-					主讲人：高洪权
+					主讲人：{{item.courseAudit}}
 				</p>
 				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img2.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg" />
-					<div class="tags">
-						<span class="tag-item">临床医学</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img2.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg" />
-					<div class="tags">
-						<span class="tag-item">临床医学</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img2.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg" />
-					<div class="tags">
-						<span class="tag-item">临床医学</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
+					<span>价格：￥{{item.price}}</span>
 				</p>
 			</li>
 		</ul>
@@ -78,10 +24,35 @@
 </template>
 
 <script>
+	import {GetRecommendInfo} from 'api/home/index'
+	export default{
+		data(){
+			return{
+				recommendList:''
+			}
+		},
+		created() {
+			this.GetRecommendData();
+		},
+		methods:{
+			async GetRecommendData(){
+				const {data:res}=await GetRecommendInfo();
+				// console.log(res);
+				if (res.code!=1) {
+					console.log("获取信息失败");
+				} 
+				this.recommendList=res.data;
+				
+			}
+		}
+	}
 </script>
 
 <style>
 	.cards {
+		/* height: 314px;
+		width: 100%;
+		margin: 70px 0px 0px 0px; */
 		margin-top: 70px;
 	}
 	
@@ -91,6 +62,7 @@
 		display: flex;
 		-webkit-box-align: start;
 		align-items: flex-start;
+		justify-content:space-around;
 		flex-wrap: wrap;
 	}
 	
@@ -142,7 +114,7 @@
 	
 	.course-name {
 		margin: 0px;
-		height: 46px;
+		height: 24px;
 		word-break: break-all;
 		font-size: 1.25rem;
 		font-weight: bold;
@@ -162,14 +134,14 @@
 	}
 	
 	.course-teacher {
-		margin: 2px 0px 2px;
+		margin: 0px 2px 2px 2px;
 		font-size: 1rem;
 		color: #9199a1;
 		line-height: 24px;
 	}
 	
 	.course-teacher>span {
-		padding: 25px;
+		padding: 10px;
 	}
 	
 	.price {

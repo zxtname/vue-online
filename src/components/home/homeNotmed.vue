@@ -36,13 +36,14 @@
 	}
 	.notmedtitle{
 		display: flex;
-		align-items: center;
+		/* align-items: center; */
+		justify-content:center;
 		position: absolute;
-		Width:auto;
+		Width:100%;
 		Height:37px;
-		Left: 456px;
-		Right: 0px;
-		Margin: auto;
+		/* Left: 456px;
+		Right: 0px; */
+		Margin:0 auto;
 	}
 	.nmd-logo{
 		padding: 0px 20px;

@@ -8,16 +8,25 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				
+			}
+		}
+	}
 </script>
 
 <style scoped>
 	.homefooter{
+		justify-content:center;
 		background-color: #FAF4FF;
 		height: 110px;
 		display: flex;
 		padding: 0px 487px;
 	}
 	.link{
+		
 		font-size: 1.125rem;
 		color: #4D555D;
 		padding: 46px 4px 46px 4px;

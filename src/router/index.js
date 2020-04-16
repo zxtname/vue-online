@@ -10,6 +10,7 @@ Vue.use(Router);
 // 我们还没有写首页，就用 Vue 的欢迎界面吧。
 // @ 指向的目录是 src.
 const __import__ = file => () => import(`@/pages/${file}.vue`);
+const mockPath ='@/api/mock/index';
 
 const router = new Router({
   mode:"history",
@@ -24,7 +25,14 @@ const router = new Router({
       meta: {
         title: "健慧网"
       }
-    }
+    },
+	{
+		path:"/test",
+		component:()=>import('@/pages/test.vue'),
+		meta:{
+			title:"用来测试的页面"
+		}
+	}
   ]
 });
 

@@ -22,8 +22,7 @@
 		data() {
 			return {
 				imgUrl: require("../../assets/intl.png"),
-				imgUrl2: require("../../assets/intr.png")
-				
+				imgUrl2: require("../../assets/intr.png")				
 			}
 		}
 	};
@@ -37,13 +36,12 @@
 	}
 	.rectitle{
 		display: flex;
-		align-items: center;
+		/* align-items: center; */
+		justify-content:center;
 		position: absolute;
-		Width:auto;
-		Height:37px;
-		Left: 465px;
-		Right: 0px;
-		Margin: auto;
+		Width:100%;
+		Height:37px;		
+		Margin: 0 auto;
 	}
 	.int-logo{
 		padding: 0px 20px;

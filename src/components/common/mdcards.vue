@@ -1,157 +1,54 @@
 <template>
 	<div class="cards">
 		<ul class="course-list">
-			<li class="course-item">
+			<li v-for="(item,index) in medicalList" :key="index" class="course-item">
 				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
+					<img :src="item.imgUrl" />
 					<div class="tags">
-						<span class="tag-item">临床医学</span>
+						<span class="tag-item">{{item.classfyName}}</span>
 					</div>
 				</div>
 				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
+					{{item.courseName}}
 				</p>
 				<p class="course-teacher">
-					主讲人：高洪权
+					主讲人：{{item.courseAudit}}
 				</p>
 				<p class="price">
-					<span>价格：￥299</span>
+					<span>价格：￥{{item.price}}</span>
 				</p>
 			</li>
 
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
-					<div class="tags">
-						<span class="tag-item">药学</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
-					<div class="tags">
-						<span class="tag-item">护理</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
-					<div class="tags">
-						<span class="tag-item">中医中药</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-			
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
-					<div class="tags">
-						<span class="tag-item">基础医学</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-			
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
-					<div class="tags">
-						<span class="tag-item">公共卫生</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-			
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
-					<div class="tags">
-						<span class="tag-item">医学检验</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
-			
-			<li class="course-item">
-				<div class="img-box">
-					<img src="https://img1.dxycdn.com/2020/0410/304/3406952304740833876-73.png?x-oss-process=image/format,webp" />
-					<div class="tags">
-						<span class="tag-item">口腔疾病</span>
-					</div>
-				</div>
-				<p class="course-name">
-					神经科基本功：颅脑解剖与影像异常
-				</p>
-				<p class="course-teacher">
-					主讲人：高洪权
-				</p>
-				<p class="price">
-					<span>价格：￥299</span>
-				</p>
-			</li>
 		</ul>
 
 	</div>
 </template>
 
 <script>
+	import {GetMedicalInfo} from 'api/home/index'
+	export default{
+		data(){
+			return{
+				medicalList:''
+			}
+		},
+		created() {
+			this.GetData();
+		},
+		methods:{
+			async GetData(){
+				const {data:res}=await GetMedicalInfo();
+				// console.log(res);
+				if(res.code!=1){
+					console.log("错误");
+					return;
+				}
+				this.medicalList=res.data;				
+			}
+		}
+		
+	}
 </script>
-
 <style scoped>
 	.cards {
 		margin-top: 70px;
