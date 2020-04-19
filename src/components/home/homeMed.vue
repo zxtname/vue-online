@@ -7,17 +7,18 @@
 
 			<img :src="imgUrl2" class="med-logo">
 		</div>
-		<mdcards></mdcards>
+		<cards></cards>
+		<cards></cards>
 	</div>
 </template>
 
 <script>
-	import mdcards from'../common/mdcards.vue'
+	import cards from'../common/cards.vue'
 	
 	export default {
 		name: 'homeMed',
 		components:{
-			mdcards,
+			cards,
 		},
 		data() {
 			return {

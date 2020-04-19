@@ -66,7 +66,7 @@ export default {
 }
 .homeCarousel {
 	border-radius: 10px;
-	/* z-index: -1; */
+	padding-top: 20px;
 }
 
 .block {

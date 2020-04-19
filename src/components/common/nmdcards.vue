@@ -1,4 +1,4 @@
-<template>
+<template><!-- 可以不要，无页面用到 -->
 	<div class="cards">
 		<ul class="course-list">
 			<li v-for="(item,index) in medicalList" :key="index" class="course-item">

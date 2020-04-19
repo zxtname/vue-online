@@ -1,4 +1,4 @@
-<template>
+<template><!-- 由于医学专区及非医学专区页面的课程卡片 -->
 	<div class="cards">
 		<ul class="course-list">
 			<li v-for="(item,index) in medicalList" :key="index" class="course-item">
@@ -55,7 +55,8 @@
 	}
 	
 	.course-list {
-		padding: 0px 54px 0px 54px;
+		padding-right: 70px;
+		padding-left: 20px;
 		margin-bottom: 0px;
 		display: flex;
 		-webkit-box-align: start;
@@ -64,7 +65,7 @@
 	}
 	
 	.course-item {
-		margin-bottom: 34px;
+		margin-bottom: 55px;
 		display: block;
 		position: relative;
 		-webkit-box-flex: 0;
@@ -73,7 +74,7 @@
 	}
 	
 	.course-item:hover .course-name{
-		color: #1A50EA;
+		color: #0F4C81;
 	}
 	
 	.img-box {

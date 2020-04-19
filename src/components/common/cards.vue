@@ -1,4 +1,4 @@
-<template>
+<template><!-- 用于首页、推荐课程及免费课程的课程卡片 -->
 	<div class="cards">
 		<ul class="course-list">
 			<li v-for="(item,index) in recommendList" :key="index" class="course-item">
@@ -75,7 +75,7 @@
 	}
 	
 	.course-item:hover .course-name{
-		color: #1A50EA;
+		color: #0F4C81;
 	}
 	
 	.img-box {

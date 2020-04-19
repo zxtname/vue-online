@@ -7,16 +7,17 @@
 
 			<img :src="imgUrl2" class="nmd-logo">
 		</div>
-		<nmdcards></nmdcards>
+		<cards></cards>
+		<cards></cards>
 	</div>
 </template>
 
 <script>
-	import nmdcards from '../common/nmdcards.vue'
+	import cards from '../common/cards.vue'
 	export default {
 		name: 'homeNotmed',
 		components:{
-			nmdcards,
+			cards,
 		},
 		data() {
 			return {

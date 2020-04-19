@@ -33,6 +33,6 @@
 		cursor: pointer;
 	}
 	.link:hover{
-		color: #1A50EA;
+		color: #0F4C82;
 	}
 </style>

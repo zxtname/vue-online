@@ -1,27 +1,34 @@
 <template>
   <div id="app">
-	 <homeHeader/>
+	
+	<homeHeader/>
     <router-view></router-view>
 	<homefooter/>
+	<sidebar></sidebar>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import homeHeader from '@/components/common/homeHeader.vue';
+// import test from '@/components/common/test.vue';
 import homefooter from '@/components/common/homefooter.vue';
+import sidebar from '@/components/common/sidebar.vue';
+
 export default {
   name: 'app',
   components: {
     homeHeader,
-	homefooter
-  }
+	homefooter,
+	sidebar,
+	//test,
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir','SimHei', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir',"Microsoft YaHei", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
