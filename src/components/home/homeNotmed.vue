@@ -7,14 +7,22 @@
 
 			<img :src="imgUrl2" class="nmd-logo">
 		</div>
-		<cards></cards>
-		<cards></cards>
+		<cards :dataList="dataList"></cards>
+		<!-- <cards></cards> -->
 	</div>
 </template>
 
 <script>
 	import cards from '../common/cards.vue'
 	export default {
+		props:{
+			dataList:{
+				type:Array,
+				default:function(){
+					return null;
+				}
+			}
+		},
 		name: 'homeNotmed',
 		components:{
 			cards,

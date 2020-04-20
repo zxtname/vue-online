@@ -1,5 +1,13 @@
 import request from '@/api/base.js'
 
+//获取首页的全部信息
+export const GetHomeInfo=()=>{
+	return request({
+		url: 'home/homeInfo.json',
+		method: 'get'
+	});
+}
+
 //静态方法获取轮播图
 export const GetCarouselInfo = () => {
 	return request({

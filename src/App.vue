@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-	
 	<homeHeader/>
     <router-view></router-view>
 	<homefooter/>

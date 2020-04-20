@@ -7,7 +7,7 @@
 
 			<img :src="imgUrl2" class="int-logo">
 		</div>
-		<cards></cards>
+		<cards :dataList="dataList"></cards>
 	</div>
 </template>
 
@@ -16,6 +16,14 @@
 	
 	export default {
 		name: 'homeRecommendation',
+		props: {
+			dataList: {
+				type: Array,
+				default: function() {
+					return null;
+				}
+			}
+		},
 		components:{
 			cards,
 		},

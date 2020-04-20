@@ -16,21 +16,33 @@
 import { GetCarouselInfo } from 'api/home/index';
 
 export default {
+	props:{
+		CarouselList:{
+			type:Array,
+			default:function(){
+				return [];
+			}
+		}		
+	},
 	data() {
 		return {
-			CarouselList: '', //轮播的数据
+			// CarouselList: [], //轮播的数据
 			currentCarousel: '' //当前轮播的图片
 		};
 	},
 	created() {
-		this.GetCarousel();
+		if(this.CarouselList==[])
+		{
+			this.GetCarousel();
+		}		
+		// console.log(this.CarouselList);
 	},
 	methods: {
 		//获取轮播的数据
 		async GetCarousel() {
 			const { data: res } = await GetCarouselInfo();
 			this.CarouselList = res.data;
-			console.log(res);
+			// console.log(res);
 		},
 		handelCarouselChange(index) {
 			this.currentCarousel = this.CarouselList[index].imgUrl;

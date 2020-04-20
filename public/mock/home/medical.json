@@ -107,6 +107,21 @@
       "isMadical": 1,
       "classfyName": "医学检验"
     },
+	{
+	  "id": 95,
+	  "courseName": "人体（系统）解剖学",
+	  "imgUrl": "http://localhost:80/image/df13c764-a74c-4e5a-9e50-05c6d5c30fa2.jpg",
+	  "price": 0,
+	  "remark": "人体解剖学是一门研究正常人体形态结构的科学，是医学以及医学相关学科的重要基础课程。本课程按医学院校系统解剖学教学大纲进行编写，同时结合3D图像展示攻克教学重点、难点。学生可以通过网络教学，结合讨论、练习和分享报告，立体、系统地学习人体的结构，完成本学科的学习获得学分和证书。",
+	  "creatTime": "2019-09-22 00:00:00",
+	  "courseAudit": "admin,",
+	  "stopFlag": 0,
+	  "imgName": "df13c764-a74c-4e5a-9e50-05c6d5c30fa2.jpg",
+	  "isFree": 1,
+	  "courseCode": "A001",
+	  "isMadical": 1,
+	  "classfyName": "临床医学"
+	},
     {
       "id": 1,
       "courseName": "针灸学",
