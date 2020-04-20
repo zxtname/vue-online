@@ -57,5 +57,6 @@
 		display: flex;
 		flex-direction: column;
 		background-color: #F0F0F0;
+		min-height: 600px;
 	}
 </style>

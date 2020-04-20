@@ -12,6 +12,7 @@
 	// import text from '@/components/intcourses/text.vue'
 	import cards from '@/components/common/cards.vue'
 	import tabPage from '@/components/common/tabPage.vue'
+	import coursesApi from '@/api/mock/home/index.js'
 
 	export default {
 		components: {
@@ -23,7 +24,8 @@
 		data() {
 			return {
 				totalPage: 1,
-				currentPage: 1
+				currentPage: 1,
+				coursesContent: [],
 			}
 		},
 		methods: {
@@ -31,6 +33,7 @@
 		            this.$router.push({
 		                name: 'intcourses',
 		                query: {
+							...this.$route.query,
 		                    page: this.currentPage
 		                }
 		            })
@@ -41,10 +44,15 @@
 		        }
 		    },
 		    async created () {
+				let resTwo = await coursesApi.getCoursesContent(this.$route.query)
+				this.coursesContent = resTwo.data		
 		        this.totalPage = Math.ceil(resTwo.data.count / resTwo.data.page_size)
 		    }
 	}
 </script>
 
 <style scoped>
+	.intcourses{
+		min-height: 600px;
+	}
 </style>
