@@ -4,7 +4,7 @@
 
 		<el-dialog title="提示" :visible.sync="centerDialogVisible" width="30%" center>
 			<span>
-				<el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="60px" class="login_form">
+				<!-- <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="60px" class="login_form">
 					<el-form-item label="账号" prop="username"><el-input v-model="loginForm.username" prefix-icon="iconfont icon-user"></el-input></el-form-item>
 					<el-form-item label="密码" prop="password">
 						<el-input v-model="loginForm.password" type="password" prefix-icon="iconfont icon-3702mima"></el-input>
@@ -13,7 +13,7 @@
 						<el-button type="primary" @click="login">登录</el-button>
 						<el-button type="info" @click="resetLoginForm">重置</el-button>
 					</el-form-item>
-				</el-form>
+				</el-form> -->
 			</span>
 			<span slot="footer" class="dialog-footer">
 				<el-button @click="centerDialogVisible = false">取 消</el-button>
@@ -27,6 +27,7 @@
 export default {
 	data() {
 		return {
+			centerDialogVisible:false,
 			loginForm: {
 				username: 'admin',
 				password: '123456'
