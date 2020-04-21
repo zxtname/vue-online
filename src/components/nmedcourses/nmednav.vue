@@ -1,4 +1,5 @@
 <template>
+	<!-- 被遗弃的代码 -->
 		<div class="nmednav">
 			<el-col :span="9">
 				<el-menu default-active="1" class="el-menu-vertical-demo" background-color="#FAF5FF" text-color="#303133" active-text-color="#6A8DC3">

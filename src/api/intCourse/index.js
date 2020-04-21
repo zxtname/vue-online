@@ -9,7 +9,7 @@ export const GetCourseInfo = (query) => {
 		"order": "desc",
 		"query": {}
 	}
-	console.log(query)
+	// console.log(query)
 	return request({
 		url: 'Course/GetCourseInfo',
 		method: 'post',

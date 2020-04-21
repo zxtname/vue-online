@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import { GetCarouselInfo } from 'api/home/index';
+// import { GetCarouselInfo } from 'api/home/index';
+import request from 'axios';
 
 export default {
 	props:{
@@ -40,7 +41,10 @@ export default {
 	methods: {
 		//获取轮播的数据
 		async GetCarousel() {
-			const { data: res } = await GetCarouselInfo();
+			const { data: res } = await request({
+				url: './mock/home/carousel.json',
+				method: 'get'
+			});
 			this.CarouselList = res.data;
 			// console.log(res);
 		},

@@ -1,0 +1,64 @@
+{
+  "code": 1,
+  "msg": "ok",
+  "data": {
+    "classfyList": [
+      {
+        "id": 9,
+        "classfyName": "疾病诊治",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      },
+      {
+        "id": 10,
+        "classfyName": "实用技能",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      },
+      {
+        "id": 11,
+        "classfyName": "用药经验",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      },
+      {
+        "id": 12,
+        "classfyName": "指南解读",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      },
+      {
+        "id": 13,
+        "classfyName": "辅助检查",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      },
+      {
+        "id": 14,
+        "classfyName": "医学人文",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      },
+      {
+        "id": 15,
+        "classfyName": "健康科普",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      },
+      {
+        "id": 16,
+        "classfyName": "医患沟通",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 0
+      }
+    ]
+  }
+}

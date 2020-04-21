@@ -60,7 +60,7 @@
 	import login from '@/components/common/login.vue'
 	
 	export default{
-		name:'header',
+		// name:'header',
 		components:{
 			login,
 		},

@@ -6,57 +6,41 @@
 					<img :src="imgUrl">
 				</div>
 			</div>
-		</div>
-
-		<div>
+		</div>		
 			<div class="course-nav">
 				<dl>
 					<dt>分类：</dt>
-					<dd v-for="(item,index) in items" :key="index" :class="{'active':Display==index}" @click="isActive(index)">
-						{{item.text}}
+					<dd 
+					v-for="(item,index) in classfyList" 
+					:key="item.id" 
+					:class="{'active':Display==index}" 
+					@click="isActive(index,item.classfyName)">
+						{{item.classfyName}}
 					</dd>
 				</dl>
-			</div>
-		</div>
-
-
+			</div>		
 	</div>
-	</div>
-
 </template>
 
-<script>
+<script>	
 	export default {
+		props:{
+			classfyList:Array,
+			default(){
+				return []
+			}
+		},
 		name: 'freenav',
-		data: function() {
-
+		data() {
 			return {
-				items: [
-					{text: '全部'},
-					{text: '临床医学'},
-					{text: '药学'},
-					{text: '护理'},
-					{text: '中医药学'},
-					{text: '基础医学'},
-					{text: '公共卫生'},
-					{text: '医学检验'},
-					{text: '口腔医学'},
-					{text: '疾病诊治'},
-					{text: '实用技能'},
-					{text: '用药经验'},
-					{text: '指南解读'},
-					{text: '辅助检查'},
-					{text: '医学人文'},
-					{text: '健康科普'},
-					{text: '医患沟通'}
-				],
 				imgUrl: require("@/assets/freecourse-logo.png"),
 				Display:0,
 			}
 		},
 		methods:{
-			isActive(index){
+			isActive(index,val){
 				this.Display=index;
+				this.$emit('classfyClick',val)
 			}
 		}
 	};
