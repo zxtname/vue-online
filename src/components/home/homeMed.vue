@@ -7,7 +7,12 @@
 
 			<img :src="imgUrl2" class="med-logo">
 		</div>
-		<cards :dataList="dataList"></cards>
+		
+		<div class="homemedcardlist">
+			<cards :dataList="dataList"></cards>
+		</div>
+		
+		
 		<!-- <cards></cards> -->
 	</div>
 </template>
@@ -39,6 +44,10 @@
 </script>
 
 <style>
+	.homemedcardlist{
+		height: 36.25rem;
+	}
+	
 	.homeMed {
 		/* z-index: -1; */
 		/* justify-content:center; */
