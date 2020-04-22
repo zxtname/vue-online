@@ -3,12 +3,14 @@
 	<div class="cards">
 		<ul class="course-list">
 			<li v-for="(item, index) in dataList==null?defaultData:dataList" :key="index" class="course-item">
+				<router-link tag="a" :to="{ name: 'coursesdetail' }" class="coursesdetail">
 				<div class="img-box">
 					<img :src="item.imgUrl" />
 					<div class="tags">
 						<span class="tag-item">{{ item.classfyName }}</span>
 					</div>
 				</div>
+				</router-link>
 				<p class="course-name">{{ item.courseName }}</p>
 				<p class="course-teacher">主讲人：{{ item.courseAudit }}</p>
 				<p class="price">

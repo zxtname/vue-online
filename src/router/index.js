@@ -21,7 +21,7 @@ const router = new Router({
 			// 本质上只是一个对象，所以可以填任意数据，
 			// 本实验中为了统一，额外的属性都将放到 meta 里。
 			meta: {
-				title: "健慧网"
+				title: "淘课盟"
 			}
 		},
 		{
@@ -36,7 +36,7 @@ const router = new Router({
 			name: 'intcourses',
 			component: __import__('intcourses'),
 			meta: {
-				title: '推荐课程-健慧网'
+				title: '推荐课程-淘课盟'
 			}
 		},
 		{
@@ -44,7 +44,7 @@ const router = new Router({
 			name: 'freecourses',
 			component: __import__('freecourses'),
 			meta: {
-				title: '免费课程-健慧网'
+				title: '免费课程-淘课盟'
 			}
 		},
 		{
@@ -52,7 +52,7 @@ const router = new Router({
 			name: 'medcourses',
 			component: __import__('medcourses'),
 			meta: {
-				title: '医学专区-健慧网'
+				title: '医学专区-淘课盟'
 			}
 		},
 		{
@@ -60,7 +60,15 @@ const router = new Router({
 			name:'nmedcourses',
 			component:__import__('nmedcourses'),
 			meta:{
-				title:'非医学专区-健慧网'
+				title:'非医学专区-淘课盟'
+			}
+		},
+		{
+			path:'/coursesdetail',
+			name:'coursesdetail',
+			component:__import__('coursesdetail'),
+			meta:{
+				title:'课程详情-淘课盟'
 			}
 		},
 	]
