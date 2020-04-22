@@ -3,7 +3,7 @@
 		<!-- 个人用户展示导航 -->
 		<div class="userbar" v-show="userbarsStatus" style="display: none;">
 			<div class="pertitle">
-				<img :src="'@/assets/img/'+currentUser.userimg" class="userimg" />
+				<img :src="this.currentUser.userimg" class="userimg" />
 				<span class="username" v-text="currentUser.username"></span>
 			</div>
 
@@ -137,7 +137,7 @@
 		name: 'test',
 		data: function() {
 			//原始用户信息
-			return {
+			return {				
 				loginTabs: ['登录', '注册'],
 				currentTabIndex: 0,
 				imgUrl: require("@/assets/close.png"),
@@ -190,7 +190,8 @@
 			loginout: function() {
 				this.currentUser.username = ''
 				this.currentUser.userimg = ''
-				alert('退出成功！');
+				this.$message.info('退出成功！')
+				// alert('退出成功！');
 				this.userbarsStatus = false;
 				this.lrBtnStatus = true;
 			},
@@ -216,18 +217,20 @@
 				for (var i = 0; i < this.users.length; i++) {
 					if (this.users[i].username === username && this.users[i].password === psw) {
 						flag = true;
-						alert('登录成功')
+						// alert('登录成功')
+						this.$message.success('登录成功')
 						this.loginStatus = false;
 						this.userbarsStatus = true;
 						this.currentUser.username = this.users[i].username;
-						this.currentUser.userimg = this.users[i].userimg;
+						this.currentUser.userimg = "img/"+this.users[i].userimg;
 						this.lrBtnStatus = false;
 						break;
 					}
 				}
 
 				if (!flag) {
-					alert('输入的账号密码不正确')
+					// alert('输入的账号密码不正确')
+					this.$message.error('输入的账号密码不正确')
 					document.getElementById("login").reset()
 				}
 			},
@@ -239,13 +242,15 @@
 				for (var i = 0; i < this.users.length; i++) {
 					if (this.users[i].username === username) {
 						flag = true;
-						alert('该用户名已被注册')
+						// alert('该用户名已被注册')
+						this.$message.error('该用户名已被注册')
 						break;
 					}
 				}
 				if (!flag) {
 					if (username == '' || psw == '') {
-						alert('账号密码不能为空')
+						// alert('账号密码不能为空')
+						this.$message.warning('账号密码不能为空')
 					} else {
 						var randomNum = Math.floor(Math.random() * 5) + 1;
 						var randomImg = 'user0' + randomNum + '.jpg';
@@ -254,11 +259,12 @@
 						obj.userimg = randomImg;
 
 						this.users.push(obj)
-						alert('注册成功')
+						// alert('注册成功')
+						this.$message.success('注册成功')
 						this.userbarsStatus = true;
 
 						this.currentUser.username = obj.username;
-						this.currentUser.userimg = obj.userimg;
+						this.currentUser.userimg = "img/"+obj.userimg;
 
 						this.lrBtnStatus = false;
 						document.getElementById("register").reset();
