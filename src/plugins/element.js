@@ -32,9 +32,11 @@ import {
 	Tabs,
 	TabPane,
 	Divider,
+	Icon,
 } from 'element-ui'
 
 Vue.use(Backtop)
+Vue.use(Icon)
 Vue.use(CarouselItem)
 Vue.use(Carousel)
 Vue.use(Button)

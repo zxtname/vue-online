@@ -1,56 +1,59 @@
 <template>
 	<div class="head">
-		<div class="homeHeader">
-			<router-link tag="a" :to="{ name: 'home' }" class="homeA">
-				<img src="../../assets/logo.png" class="jianhui-logo">
-			</router-link>
-
-			<div class="navSelection">
-				<router-link tag="a" :to="{ name: 'intcourses' }" class="allCoursesA">
-					<div class="navSelectionItem navSelectionItem-int">
-						推荐课程
-					</div>
+		<div class="w">
+			<div class="homeHeader w">
+				<router-link tag="a" :to="{ name: 'home' }" class="homeA">
+					<img src="../../assets/logo.png" class="jianhui-logo">
 				</router-link>
-
-				<div class="navSelectionItem navSelectionItem-all">
-					<!-- 这个里面有一个子菜单 -->
-					所有课程
-					<div class="subNavSelection">
-
-						<router-link tag="a" :to="{ name: 'medcourses' }" class="medcoursesA">
-							<div class="subNavSelectionItem">
-								医学专区
-							</div>
-						</router-link>
-
-						<router-link tag="a" :to="{ name: 'nmedcourses' }" class="nmedcoursesA">
-							<div class="subNavSelectionItem">
-								非医学专区
-							</div>
-						</router-link>
+			
+				<div class="navSelection">
+					<router-link tag="a" :to="{ name: 'intcourses' }" class="allCoursesA">
+						<div class="navSelectionItem navSelectionItem-int">
+							推荐课程
+						</div>
+					</router-link>
+			
+					<div class="navSelectionItem navSelectionItem-all">
+						<!-- 这个里面有一个子菜单 -->
+						所有课程
+						<div class="subNavSelection">
+			
+							<router-link tag="a" :to="{ name: 'medcourses' }" class="medcoursesA">
+								<div class="subNavSelectionItem">
+									医学专区
+								</div>
+							</router-link>
+			
+							<router-link tag="a" :to="{ name: 'nmedcourses' }" class="nmedcoursesA">
+								<div class="subNavSelectionItem">
+									非医学专区
+								</div>
+							</router-link>
+						</div>
 					</div>
+			
+					<router-link tag="a" :to="{ name: 'freecourses' }" class="freecoursesA">
+						<div class="navSelectionItem navSelectionItem-free">
+							免费课程
+						</div>
+					</router-link>
 				</div>
-
-				<router-link tag="a" :to="{ name: 'freecourses' }" class="freecoursesA">
-					<div class="navSelectionItem navSelectionItem-free">
-						免费课程
-					</div>
-				</router-link>
-			</div>
-
-			<div class="searchInput">
-				<input type="text" name="search" placeholder="搜索 课程" class="searchInputItem">
-				<i class="fas fa-search"></i>
-			</div>
-
-			<div style="flex-grow: 2">
-			</div>
 			
-			<!-- //占位符 -->
+				<div class="searchInput">
+					<input type="text" name="search" placeholder="搜索 课程" class="searchInputItem">
+					<i class="fas fa-search"></i>
+				</div>
 			
-			<login></login>
-			
+				<div style="flex-grow: 2">
+				</div>
+				
+				<!-- //占位符 -->
+				
+				<login></login>
+				
+			</div>
 		</div>
+		
 	</div>
 	
 	
@@ -68,6 +71,10 @@
 </script>
 
 <style type="text/css" scoped>
+	.w{
+		width: 1200px;
+		margin: auto;
+	}
 	.head {
 		background-color: #FAF4FE;
 		width: 100%;
@@ -81,7 +88,6 @@
 	}
 
 	.homeHeader {
-		padding: 0px 48px;
 		margin: 0px;
 		display: flex;
 		align-items: center;

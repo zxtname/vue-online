@@ -33,7 +33,7 @@
 						{{ item }}
 					</span>
 					<span class="login-colse" @click="closeClick()">
-						<img class="close-img" :src="imgUrl" />
+						<i class="el-icon-close"></i>
 					</span>
 				</div>
 
@@ -67,8 +67,8 @@
 					 @click="handleLoginTabClick(index);">
 						{{ item }}
 					</span>
-					<span class="login-colse">
-						<img class="close-img" :src="imgUrl" @click="closeClick()" />
+					<span class="login-colse" @click="closeClick()">
+						<i class="el-icon-close"></i>
 					</span>
 				</div>
 
@@ -103,7 +103,7 @@
 						{{ item }}
 					</span>
 					<span class="login-colse">
-						<img class="close-img" :src="imgUrl" @click="closeClick()" />
+						<i class="el-icon-close" @click="closeClick()"></i>
 					</span>
 				</div>
 		
@@ -180,12 +180,14 @@
 				this.loginStatus = true
 				this.registerStatus = false
 				this.phoneStatus=false
+				this.currentTabIndex = 0
 			},
 			showregister: function() {
 				document.getElementById("register").reset()
 				this.loginStatus = false
 				this.registerStatus = true
 				this.phoneStatus=false
+				this.currentTabIndex = 1
 			},
 			loginout: function() {
 				this.currentUser.username = ''
@@ -202,13 +204,17 @@
 			registerboxClick: function() {
 				this.registerStatus = false
 			},
+			phoneboxClick:function(){
+				this.phoneStatus = false
+			},
 			stopProp: function(e) {
 				e = e || event;
 				e.stopPropagation()
 			},
 			closeClick: function() {
 				this.loginStatus = false;
-				this.registerStatus = false
+				this.registerStatus = false;
+				this.phoneStatus = false
 			},
 			login: function() {
 				var username = $('.loginbox').find('.username').val();
@@ -344,7 +350,7 @@
 	.login-colse {
 		float: right;
 		display: inline-block;
-		padding: 5px 0px 0px 120px;
+		padding: 5px 0px 0px 170px;
 		line-height: 50px;
 		color: #787d82;
 	}
@@ -511,5 +517,16 @@
 	.privacy a {
 	    font-size: 12px;
 	    color: #37f;
+	}
+	
+	.el-icon-close{
+		font-size: 24px;
+		cursor: pointer;
+		font-weight: bold;
+	}
+	
+	.el-icon-close:hover{
+		transform: scale(1.2);
+		color: #0F4C82;
 	}
 </style>

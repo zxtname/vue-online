@@ -274,7 +274,7 @@
 	
 </script>
 
-<style>
+<style scoped>
 	@import url("//unpkg.com/element-ui@2.13.1/lib/theme-chalk/index.css");
 /* 	a{
 		text-decoration: none;
