@@ -36,3 +36,18 @@ export const GetNotMedicalInfo = () => {
 		method: 'get'
 	});
 }
+
+// export const getCoursesContent = (query) => {
+// 	return request({
+// 		url: 'home/notMedical.json',
+// 		method: 'get',
+// 		params: query,
+// 	});
+// }
+
+export default{
+	getCoursesContent(query){
+		return request.get("home/notMedical.json",{params:query});
+	}
+}
+

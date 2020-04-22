@@ -7,7 +7,11 @@
 
 			<img :src="imgUrl2" class="nmd-logo">
 		</div>
-		<cards :dataList="dataList"></cards>
+		
+		<div class="homenmedcardslist">
+			<cards :dataList="dataList"></cards>
+		</div>
+		
 		<!-- <cards></cards> -->
 	</div>
 </template>
@@ -38,6 +42,9 @@
 </script>
 
 <style>
+	.homenmedcardslist{
+		height: 36.25rem;
+	}
 	.homeNotmed {
 		padding: 54px 0px 65px 0px;
 		/* z-index: -1; */

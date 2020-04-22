@@ -1,6 +1,6 @@
 <template>
 	<div class="login_box">
-		<el-button type="text" @click="centerDialogVisible = true">点击打开 Dialog</el-button>
+		<!-- <el-button type="text" @click="centerDialogVisible = true">点击打开 Dialog</el-button>
 
 		<el-dialog title="提示" :visible.sync="centerDialogVisible" width="30%" center>
 			<span>
@@ -19,14 +19,23 @@
 				<el-button @click="centerDialogVisible = false">取 消</el-button>
 				<el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
 			</span>
-		</el-dialog>
+		</el-dialog> -->
+		<!-- <login></login> -->
+		<span>{{require(`@/assets/img/${this.userName}.jpg`)}}</span>
 	</div>
 </template>
 
 <script>
+	// import login from './test2.vue'
 export default {
+	components:{
+		// login
+	},
 	data() {
 		return {
+			imgUrl:312321,
+			userName:"user01",
+			centerDialogVisible:false,
 			loginForm: {
 				username: 'admin',
 				password: '123456'

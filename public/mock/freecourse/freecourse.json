@@ -1,0 +1,64 @@
+{
+  "code": 1,
+  "msg": "ok",
+  "data": {
+    "classfyList": [
+      {
+        "id": 1,
+        "classfyName": "公共卫生",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      },
+      {
+        "id": 2,
+        "classfyName": "护理",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      },
+      {
+        "id": 3,
+        "classfyName": "基础医学",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      },
+      {
+        "id": 4,
+        "classfyName": "口腔医学",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      },
+      {
+        "id": 5,
+        "classfyName": "临床医学",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      },
+      {
+        "id": 6,
+        "classfyName": "药学",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      },
+      {
+        "id": 7,
+        "classfyName": "医学检验",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      },
+      {
+        "id": 8,
+        "classfyName": "中医中药",
+        "classCode": null,
+        "stopFlag": 0,
+        "isMadical": 1
+      }
+    ]
+  }
+}

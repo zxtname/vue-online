@@ -7,7 +7,12 @@
 
 			<img :src="imgUrl2" class="int-logo">
 		</div>
-		<cards :dataList="dataList"></cards>
+		
+		<div class="homeredcardslist">
+			<cards :dataList="dataList"></cards>
+		</div>
+		
+		
 	</div>
 </template>
 
@@ -37,6 +42,9 @@
 </script>
 
 <style>
+	.homeredcardslist{
+		height: 18.125rem;
+	}
 	.homeRecommendation {
 		padding: 450px 0px 88px 0px;
 		/* z-index: -1; */

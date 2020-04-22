@@ -2,7 +2,7 @@
 	<!-- 用于首页、推荐课程及免费课程的课程卡片 -->
 	<div class="cards">
 		<ul class="course-list">
-			<li v-for="(item, index) in dataList==null?defaultData:dataList" :key="index" class="course-item">
+			<li v-for="(item, index) in dataList == null ? defaultData : dataList" :key="index" class="course-item">
 				<router-link tag="a" :to="{ name: 'coursesdetail' }" class="coursesdetail">
 				<div class="img-box">
 					<img :src="item.imgUrl" />
@@ -22,8 +22,9 @@
 </template>
 
 <script>
-import {GetRecommendInfo} from 'api/home/index'
-export default{
+// import {GetRecommendInfo} from '@/api/mock/home/index'
+import request from 'axios';
+export default {
 	props: {
 		dataList: {
 			type: Array,
@@ -32,27 +33,32 @@ export default{
 			}
 		}
 	},
-	data(){
-		return{
-			defaultData:'',
-			
-		}
+	data() {
+		return {
+			defaultData: ''
+		};
 	},
 	created() {
-		this.GetRecommendData();		
+		this.GetRecommendData();
 	},
-	methods:{
-		async GetRecommendData(){
-			const {data:res}=await GetRecommendInfo();
-			// console.log(res);
-			if (res.code!=1) {
-				console.log("获取信息失败");
+	methods: {
+		async GetRecommendData() {
+			try {
+				const { data: res } = await request({
+					url: './mock/home/recommend.json',
+					method: 'get'
+				});
+				// console.log(res);
+				if (res.code !== 1) {
+					console.log('获取信息失败');
+				}
+				this.defaultData = res.data;
+			} catch {
+				this.$message.error('默认信息获取失败');
 			}
-			this.defaultData=res.data;
-
 		}
 	}
-}
+};
 </script>
 
 <style>

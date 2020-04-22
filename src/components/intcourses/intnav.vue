@@ -47,6 +47,8 @@
 		methods:{
 			isActive(index){
 				this.Display=index;
+				// console.log(index);
+				this.$emit("getActiveIndex",index)
 			}
 		}
 	};

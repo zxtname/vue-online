@@ -39,12 +39,25 @@
 		},
 		methods:{
 			async GetHomeList(){
-				const {data:res}=await GetHomeInfo();
-				console.log(res);
-				this.carouselData=res.data.carouselCourse;
-				this.recommendData=res.data.recommendCourse;
-				this.medicalData=res.data.medicalCourse;
-				this.nMedicalData=res.data.noMedical;
+				try{
+					const {data:res}=await GetHomeInfo();
+					if(res.code!==1)
+					{
+						this.$message.error("获取信息失败")
+					}
+					this.carouselData=res.data.carouselCourse;
+					this.recommendData=res.data.recommendCourse;
+					this.medicalData=res.data.medicalCourse;
+					this.nMedicalData=res.data.noMedical;
+					// this.$message.success("获取信息成功")
+				}
+				catch{
+					this.$message.error("获取信息失败")
+				}
+				
+				// console.log(res);
+				
+				
 				// console.log(this.carouselData);
 			}
 		}
@@ -57,5 +70,6 @@
 		display: flex;
 		flex-direction: column;
 		background-color: #F0F0F0;
+		min-height: 600px;
 	}
 </style>
