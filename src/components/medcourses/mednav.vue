@@ -1,6 +1,6 @@
 <template>
-	<div class="mednav">
-		<el-col :span="5">
+	<div class="mednav w">
+		<el-col :span="8">
 			<el-menu default-active="0" class="el-menu-vertical-demo" background-color="#FAF5FF" text-color="#303133" active-text-color="#6A8DC3">
 				<el-menu-item index="0" @click="classfyClick('')" style="padding-left: 40px;"><span slot="title">全部</span></el-menu-item>
 				<el-menu-item v-for="(item, index) in classfyList" :key="item.id" :index="item.id.toString()" @click="classfyClick(item.classfyName)" style="padding-left: 40px;">
@@ -77,8 +77,12 @@ export default {
 </script>
 
 <style scoped>
+	.w{
+		width: 1250px;
+		margin: auto;
+	}
 .mednav {
-	padding-left: 64px;
+	padding-left: 15px;
 	display: flex;
 }
 .el-menu-item {

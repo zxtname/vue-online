@@ -1,5 +1,5 @@
 <template>
-	<div class="homeNotmed">
+	<div class="homeNotmed w">
 		<div class="notmedtitle">
 			<img :src="imgUrl" class="nmd-logo">
 
@@ -42,8 +42,12 @@
 </script>
 
 <style>
+	.w {
+		width: 1250px;
+		margin: auto;
+	}
 	.homenmedcardslist{
-		height: 36.25rem;
+		height: 670px;
 	}
 	.homeNotmed {
 		padding: 54px 0px 65px 0px;

@@ -72,7 +72,7 @@
 
 <style type="text/css" scoped>
 	.w{
-		width: 1200px;
+		width: 1250px;
 		margin: auto;
 	}
 	.head {

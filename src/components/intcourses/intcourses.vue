@@ -1,7 +1,10 @@
 <template>
 	<div class="intcourses">
 		<intnav @getActiveIndex="setField"></intnav>
-		<cards :dataList="coursesContent"></cards>
+		<div class="w">
+			<cards :dataList="coursesContent"></cards>
+		</div>
+		
 		<tabPage :totalPage="totalPage" @changePage="changePage"></tabPage>
 		<!-- <text></text> -->
 	</div>
@@ -85,6 +88,10 @@ export default {
 </script>
 
 <style scoped>
+	.w{
+		width: 1250px;
+		margin:auto;
+	}
 .intcourses {
 	min-height: 600px;
 }

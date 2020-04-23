@@ -1,6 +1,6 @@
 <template>
 	<div class="intnav">
-		<div class="course center">
+		<div class="course center w">
 			<div class="title">
 				<div class="intcourse-logo">
 					<img :src="imgUrl">
@@ -9,7 +9,7 @@
 		</div>
 
 		<div>
-			<div class="course-nav">
+			<div class="course-nav w">
 				<dl>
 					<dt>分类：</dt>
 					<dd 
@@ -55,6 +55,10 @@
 </script>
 
 <style scoped>
+	.w{
+		width: 1250px;
+		margin:auto;
+	}
 	.intnav {
 		display: block;
 		-webkit-box-flex: 1;
@@ -103,7 +107,7 @@
 
 	.course-nav dl {
 		position: relative;
-		padding: 20px 700px 10px 52px;
+		padding: 20px 600px 10px 52px;
 		font-size: 20px;
 	}
 

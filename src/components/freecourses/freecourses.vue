@@ -1,7 +1,10 @@
 <template>
 	<div class="freecourses">
 		<freenav :classfyList="classfyList" @classfyClick="classfyClick"></freenav>
-		<cards :dataList="coursesContent"></cards>
+		<div class="w">
+			<cards :dataList="coursesContent"></cards>
+		</div>
+		
 		<tabPage :totalPage="totalPage" @changePage="changePage"></tabPage>
 	</div>
 </template>
@@ -70,6 +73,10 @@
 </script>
 
 <style scoped>
+	.w{
+		width: 1250px;
+		margin:auto;
+	}
 	.freecourses{
 		min-height: 600px;
 	}

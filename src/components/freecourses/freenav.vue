@@ -1,13 +1,13 @@
 <template>
 	<div class="freenav">
-		<div class="course center">
+		<div class="course center w">
 			<div class="title">
 				<div class="freecourse-logo">
 					<img :src="imgUrl">
 				</div>
 			</div>
 		</div>		
-			<div class="course-nav">
+			<div class="course-nav w">
 				<dl>
 					<dt>分类：</dt>
 					<dd 
@@ -47,6 +47,10 @@
 </script>
 
 <style scoped>
+	.w{
+		width: 1250px;
+		margin:auto;
+	}
 	.freenav {
 		display: block;
 		-webkit-box-flex: 1;
@@ -95,7 +99,7 @@
 
 	.course-nav dl {
 		position: relative;
-		padding: 20px 200px 10px 52px;
+		padding: 20px 180px 10px 52px;
 		font-size: 20px;
 	}
 

@@ -1,7 +1,7 @@
 <template>
 	<!-- 用于首页、推荐课程及免费课程的课程卡片 -->
 	<div class="cards">
-		<ul class="course-list">
+		<ul class="course-list" style="padding-left: 0px;">
 			<li v-for="(item, index) in dataList == null ? defaultData : dataList" :key="index" class="course-item">
 				<router-link tag="a" :to="{ name: 'coursesdetail' }" class="coursesdetail">
 				<div class="img-box">
@@ -66,11 +66,10 @@ export default {
 	/* height: 314px;
 		width: 100%;
 		margin: 70px 0px 0px 0px; */
-	margin-top: 70px;
+	margin-top: 70px;;
 }
 
 .course-list {
-	padding: 0px 54px 0px 54px;
 	margin: 0px;
 	display: flex;
 	-webkit-box-align: start;
@@ -85,6 +84,7 @@ export default {
 	-webkit-box-flex: 0;
 	flex: 0 0 20%;
 	cursor: pointer;
+	padding-bottom: 50px
 }
 
 .course-item:hover .course-name {
@@ -184,6 +184,6 @@ ul {
 	-webkit-margin-after: 1em;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
-	-webkit-padding-start: 40px;
+	/* -webkit-padding-start: 40px; */
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<div class="homeMed">
+	<div class="homeMed w">
 		<div class="medtitle">
 			<img :src="imgUrl" class="med-logo">
 
@@ -44,8 +44,12 @@
 </script>
 
 <style>
+	.w {
+		width: 1250px;
+		margin: auto;
+	}
 	.homemedcardlist{
-		height: 36.25rem;
+		height: 670px;
 	}
 	
 	.homeMed {

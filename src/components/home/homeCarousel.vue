@@ -1,7 +1,7 @@
 <template>
 	<div class="homeCarousel">
 		<div class="bg-mask" :style="getBackgroundImage" />
-		<div class="block">
+		<div class="block w">
 			<el-carousel height="382px" :interval="2000" @change="handelCarouselChange">
 				<el-carousel-item v-for="(item, index) in CarouselList" :key="index">
 					<!-- <h3 class="small">{{ item }}</h3> -->
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-// import { GetCarouselInfo } from 'api/home/index';
+	// import { GetCarouselInfo } from 'api/home/index';
 import request from 'axios';
 
 export default {
@@ -63,60 +63,66 @@ export default {
 </script>
 
 <style type="text/css" scoped>
-.bg-mask {
-	position: absolute;
-	margin-top: 80px;
-	/* top:80px; */
-	background-size: cover;
-	transition: all 0.3s;
-	width: 100%;
-	height: 250px;
-	opacity: 0.3;
-	filter: blur(100px);
-	/* display: flex; */
-}
-.carousel-img {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
-.homeCarousel {
-	border-radius: 10px;
-	padding-top: 20px;
-}
+	.w {
+		width: 1250px;
+		margin: auto;
+	}
 
-.block {
-	position: relative;
-	border-radius: 10px;
-}
+	.bg-mask {
+		position: absolute;
+		margin-top: 80px;
+		/* top:80px; */
+		background-size: cover;
+		transition: all 0.3s;
+		width: 100%;
+		height: 250px;
+		opacity: 0.3;
+		filter: blur(100px);
+		/* display: flex; */
+	}
 
-.el-carousel {
-	width: 93%;
-	height: 382px;
-	position: absolute;
-	left: 0px;
-	right: 0px;
-	margin: auto;
-	border-radius: 10px;
-	box-shadow: 0px 10px 20px rgba(7, 17, 27, 0.1);
-}
+	.carousel-img {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
 
-.el-carousel__item h3 {
-	color: #475669;
-	font-size: 0.875rem;
-	opacity: 0.75;
-	line-height: 150px;
-	margin: 0;
-	border-radius: 10px;
-}
+	.homeCarousel {
+		border-radius: 10px;
+		padding-top: 20px;
+	}
 
-.el-carousel__item:nth-child(2n) {
-	background-color: #99a9bf;
-	border-radius: 10px;
-}
+	.block {
+		position: relative;
+		border-radius: 10px;
+	}
 
-.el-carousel__item:nth-child(2n + 1) {
-	background-color: #d3dce6;
-	border-radius: 10px;
-}
+	.el-carousel {
+		height: 382px;
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		margin: auto;
+		border-radius: 10px;
+		box-shadow: 0px 10px 20px rgba(7, 17, 27, 0.1);
+	}
+
+	.el-carousel__item h3 {
+		color: #475669;
+		font-size: 0.875rem;
+		opacity: 0.75;
+		line-height: 150px;
+		margin: 0;
+		border-radius: 10px;
+	}
+
+	.el-carousel__item:nth-child(2n) {
+		background-color: #99a9bf;
+		border-radius: 10px;
+	}
+
+	.el-carousel__item:nth-child(2n + 1) {
+		background-color: #d3dce6;
+		border-radius: 10px;
+	}
 </style>

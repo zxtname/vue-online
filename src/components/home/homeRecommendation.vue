@@ -1,9 +1,9 @@
 <template>
-	<div class="homeRecommendation">
+	<div class="homeRecommendation w">
 		<div class="rectitle">
 			<img :src="imgUrl" class="int-logo">
 
-			<span style="font-size: 1.5rem;font-weight: bold;color: 10375C;">  - = 为你推荐 = -  </span>
+			<span style="font-size: 1.5rem;font-weight: bold;color: 10375C;">  - = 热门推荐 = -  </span>
 
 			<img :src="imgUrl2" class="int-logo">
 		</div>
@@ -42,6 +42,10 @@
 </script>
 
 <style>
+	.w {
+		width: 1250px;
+		margin: auto;
+	}
 	.homeredcardslist{
 		height: 18.125rem;
 	}
