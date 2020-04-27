@@ -81,7 +81,7 @@
 				<div class="others">
 					<span class="phone-login" @click="showPhone()">手机短信注册</span>
 					|
-					<span class="alipay-login">支付宝注册</span>
+					<span class="alipay-login">支付宝登录</span>
 				</div>
 				
 				<div class="privacy">
@@ -114,9 +114,9 @@
 				</form>
 		
 				<div class="others" style="padding-left: 10px;">
-					<span class="phone-login" @click="showLogin()()">账号密码登录</span>
+					<span class="phone-login" @click="showLogin() " style="margin-right: 0px;">用户名密码登录</span>
 					|
-					<span class="alipay-login">支付宝注册</span>
+					<span class="alipay-login" style="margin-left: 0px;">支付宝登录</span>
 				</div>
 				
 				<div class="privacy">
@@ -133,6 +133,7 @@
 </template>
 
 <script>
+	import commentevent from '@/commentevent.js'
 	export default {
 		name: 'test',
 		data: function() {
@@ -196,6 +197,13 @@
 				// alert('退出成功！');
 				this.userbarsStatus = false;
 				this.lrBtnStatus = true;
+				
+				// this.currentUser.userbarsStaus=this.userbarsStaus
+				// let str1=JSON.stringify(this.currentUser);
+				// sessionStorage.setItem("token",str1)
+				sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
+				sessionStorage.setItem('uname', JSON.stringify(this.currentUser.username));
+				sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
 			},
 			//遮罩层
 			loginboxClick: function() {
@@ -223,20 +231,26 @@
 				for (var i = 0; i < this.users.length; i++) {
 					if (this.users[i].username === username && this.users[i].password === psw) {
 						flag = true;
-						// alert('登录成功')
 						this.$message.success('登录成功')
 						this.loginStatus = false;
 						this.userbarsStatus = true;
 						this.currentUser.username = this.users[i].username;
 						this.currentUser.userimg = "img/"+this.users[i].userimg;
 						this.lrBtnStatus = false;
+						// this.currentUser.userbarsStaus=this.userbarsStaus
+						// let str1=JSON.stringify(this.currentUser);
+						// sessionStorage.setItem("token",str1)
+						sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
+						sessionStorage.setItem('uname', JSON.stringify(this.currentUser.username));
+						sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
+
 						break;
 					}
 				}
 
 				if (!flag) {
 					// alert('输入的账号密码不正确')
-					this.$message.error('输入的账号密码不正确')
+					this.$message.error('输入的用户名密码不正确')
 					document.getElementById("login").reset()
 				}
 			},
@@ -271,6 +285,13 @@
 
 						this.currentUser.username = obj.username;
 						this.currentUser.userimg = "img/"+obj.userimg;
+						
+						// this.currentUser.userbarsStaus=this.userbarsStaus
+						// let str1=JSON.stringify(this.currentUser);
+						// sessionStorage.setItem("token",str1)
+						sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
+						sessionStorage.setItem('uname', JSON.stringify(this.currentUser.username));
+						sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
 
 						this.lrBtnStatus = false;
 						document.getElementById("register").reset();
@@ -294,8 +315,9 @@
 					this.phoneStatus=false
 				} 
 			},
+			
 		}
-	}
+	};
 </script>
 
 <style scoped>

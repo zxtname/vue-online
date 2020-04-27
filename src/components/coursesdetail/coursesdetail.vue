@@ -167,7 +167,8 @@
 				<!-- 教师团队模块结束 -->
 				<!-- 用户评价模块开始 -->
 			    <el-tab-pane label="用户评价" name="fourth">
-					<div class="commentbox">
+					<comment></comment>
+					<!-- <div class="commentbox">
 						<div class="icon">
 							<img src="../../assets/img/user05.jpeg" alt="">
 						</div>
@@ -229,7 +230,7 @@
 						<div class="date">
 							时间：2019-08-01
 						</div>
-					</div>
+					</div> -->
 				</el-tab-pane>
 				<!-- 用户评价模块结束 -->
 			</el-tabs>
@@ -257,7 +258,12 @@
 	//     { title: '同学', code: 2, componentName: 'classmate', key: 'classmate', show: false }
 	//   ]
 	// },
+	import comment from '@/components/common/comment.vue'
+	
 	export default {
+		components:{
+			comment,
+		},
 	    data() {
 	      return {
 	        activeName: 'first'
