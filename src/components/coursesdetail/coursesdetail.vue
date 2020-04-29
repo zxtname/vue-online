@@ -54,7 +54,9 @@
 					</ul>
 			</div>
 			<div class="buy">
-				<a href="#">立即购买</a>
+				<router-link tag="a" :to="{ name: 'pay' }" class="payA">
+					<a>立即购买</a>
+				</router-link>
 			</div>
 		</div>
 		<!-- 居中浮块课程信息完成 -->

@@ -6,7 +6,7 @@
 
 			<div class=" commemtlist ">
 				<div class="btncom">
-					<el-button round @click="showWordsbox()">我要发布</el-button>
+					<el-button round @click="showWordsbox()">我要评价</el-button>
 				</div>
 				
 				
@@ -14,7 +14,7 @@
 					<div class="box" @click="stopProp()">
 						<div class="words-tab">
 							<span class="wordstitle">
-								我要评论
+								我要评价
 							</span>
 							<span class="login-colse">
 								<i class="el-icon-close" @click="closeClick()"></i>
@@ -24,10 +24,10 @@
 						<el-input
 						  type="textarea"
 						  :rows="5"
-						  placeholder="请输入评论"
+						  placeholder="请输入评价"
 						  v-model="textarea">
 						</el-input>
-						<input type="submit" value="发表评论" @click="subComment()" />
+						<input type="submit" value="发表评价" @click="subComment()" />
 						
 					</div>
 				</div>
@@ -54,7 +54,6 @@
 </template>
 
 <script type="text/javascript">
-	import commentevent from '@/commentevent.js';
 	//日期格式化函数
 	Date.prototype.format = function(fmt) {
 		var o = {
@@ -117,11 +116,6 @@
 			}
 		},
 
-		// computed: {
-		// 	reversecomments() {
-		// 		return this.comments.reverse();
-		// 	}
-		// },
 		methods: {
 			showWordsbox: function() {
 				this.wordsboxStatus=true
@@ -143,10 +137,10 @@
 				const dataC = JSON.parse(sessionStorage.getItem('uname'));
 				const dataD = JSON.parse(sessionStorage.getItem('uimg'));
 				if (!dataB) {
-					this.$message.info('登录后才能评论')
+					this.$message.error('登录后才能评论')
 				} else {
 					if ($('.el-textarea textarea').val() == "") {
-						this.$message.info('请先评论内容')
+						this.$message.warning('请先评论内容')
 					} else {
 						var obj = {};
 						obj.username = dataC;
@@ -157,6 +151,7 @@
 						this.comments.unshift(obj);
 						this.$message.success('评论成功');
 						$('.el-textarea textarea').val('');
+						this.wordsboxStatus=false;
 					}
 				}
 			},

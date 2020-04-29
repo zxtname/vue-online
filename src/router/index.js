@@ -71,6 +71,14 @@ const router = new Router({
 				title:'课程详情-淘课盟'
 			}
 		},
+		{
+			path:'/pay',
+			name:'pay',
+			component:__import__('pay'),
+			meta:{
+				title:'确认订单-淘课盟'
+			}
+		},
 	]
 });
 

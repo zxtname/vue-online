@@ -46,9 +46,11 @@
 						<li><p>|</p></li>
 					</ul>
 			</div>
-			<div class="buy">
-				<a href="#">立即购买</a>
-			</div>
+			<router-link tag="a" :to="{ name: 'pay' }" class="payA">
+				<div class="buy">
+					<span>确认支付</span>
+				</div>
+			</router-link>
 		</div>
 		<!-- 居中浮块课程信息完成 -->
 		<!-- 分页小导航部分 -->
