@@ -19,7 +19,9 @@
 						<img class="l" src='https://szimg.mukewang.com/5ea0118b0948c90a12000676-160-90.jpg' />
 						<div class="text-info-box l">
 							<p class="package-title"></p>
-							<p class="package-info-title">(毕设项目)Vue+Go前端后端一体化 企业级微服务网关项目</p>
+							<router-link tag="a" :to="{ name: 'coursesdetail' }" class="coursesdetail">
+								<p class="package-info-title">(毕设项目)Vue+Go前端后端一体化 企业级微服务网关项目</p>
+							</router-link>
 						</div>
 						<div class="info-price l">
 							<em>￥</em>

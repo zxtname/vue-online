@@ -34,7 +34,7 @@
 
 				<dl class="commentbox" v-for="(value, index) in comments">
 					<dt>
-						<img class="icon" :src=" value.userimg ">
+						<img class="icon" :src="value.userimg ">
 						<h4>
 							<span class="username ">{{value.username}}</span>
 						</h4>
