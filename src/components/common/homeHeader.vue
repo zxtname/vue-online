@@ -5,25 +5,25 @@
 				<router-link tag="a" :to="{ name: 'home' }" class="homeA">
 					<img src="../../assets/logo.png" class="jianhui-logo">
 				</router-link>
-			
+
 				<div class="navSelection">
 					<router-link tag="a" :to="{ name: 'intcourses' }" class="allCoursesA">
 						<div class="navSelectionItem navSelectionItem-int">
 							推荐课程
 						</div>
 					</router-link>
-			
+
 					<div class="navSelectionItem navSelectionItem-all">
 						<!-- 这个里面有一个子菜单 -->
 						所有课程
 						<div class="subNavSelection">
-			
+
 							<router-link tag="a" :to="{ name: 'medcourses' }" class="medcoursesA">
 								<div class="subNavSelectionItem">
 									医学专区
 								</div>
 							</router-link>
-			
+
 							<router-link tag="a" :to="{ name: 'nmedcourses' }" class="nmedcoursesA">
 								<div class="subNavSelectionItem">
 									非医学专区
@@ -31,32 +31,41 @@
 							</router-link>
 						</div>
 					</div>
-			
+
 					<router-link tag="a" :to="{ name: 'freecourses' }" class="freecoursesA">
 						<div class="navSelectionItem navSelectionItem-free">
 							免费课程
 						</div>
 					</router-link>
 				</div>
-			
+
 				<div class="searchInput">
-					<input type="text" name="search" placeholder="搜索 课程" class="searchInputItem">
-					<i class="fas fa-search"></i>
+					<el-autocomplete popper-class="my-autocomplete" v-model="state" :fetch-suggestions="querySearch" placeholder="搜索 课程"
+					 @select="handleSelect">
+						<i class="el-icon-search el-input__icon" slot="suffix" @click="handleIconClick">
+						</i>
+						<template slot-scope="{ item }">
+							<div class="name">{{ item.value }}</div>
+							<!-- <span class="addr">{{ item.address }}</span> -->
+						</template>
+					</el-autocomplete>
+					<!-- <input type="text" name="search" placeholder="搜索 课程" class="searchInputItem">
+					<i class="fas fa-search"></i> -->
 				</div>
-			
+
 				<div style="flex-grow: 2">
 				</div>
-				
+
 				<!-- //占位符 -->
-				
+
 				<login></login>
-				
+
 			</div>
 		</div>
-		
+
 	</div>
-	
-	
+
+
 </template>
 
 <script>
@@ -67,14 +76,95 @@
 		components:{
 			login,
 		},
+		data() {
+			return {
+				courses: [],
+				state: ''
+			};
+		},
+		methods:{
+			querySearch(queryString, cb) {
+				var courses = this.courses;
+				var results = queryString ? courses.filter(this.createFilter(queryString)) : courses;
+				// 调用 callback 返回建议列表的数据
+				cb(results);
+			},
+			createFilter(queryString) {
+				return (courses) => {
+					return (courses.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+				};
+			},
+			loadAll() {
+				// 热门课程
+				return [{
+						"value": "外科护理学"
+					},
+					{
+						"value": "医学免疫学"
+					},
+					{
+						"value": "病理学"
+					},
+					{
+						"value": "分析医学"
+					},
+					{
+						"value": "口腔学"
+					},
+				]
+			},
+			handleSelect(item) {
+				console.log(item);
+			},
+			handleIconClick(ev) {
+				console.log(ev);
+			}
+		},
+		mounted() {
+			this.courses = this.loadAll();
+		},
 	}
 </script>
 
 <style type="text/css" scoped>
-	.w{
+	.my-autocomplete {
+		li {
+			line-height: normal;
+			padding: 7px;
+	
+			.name {
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+	
+			.addr {
+				font-size: 12px;
+				color: #b4b4b4;
+			}
+	
+			.highlighted .addr {
+				color: #ddd;
+			}
+		}
+	}
+	
+	>>>.el-input__inner:focus {
+		border-color: #0f4c81 !important;
+		outline: 0;
+	}
+	
+	.el-icon-search {
+		font-weight: bold;
+		font-size: 16px;
+		color: #000000;
+		cursor: pointer;
+	}
+	
+	.w {
 		width: 1250px;
 		margin: auto;
 	}
+
 	.head {
 		background-color: #FAF4FE;
 		width: 100%;
@@ -153,6 +243,13 @@
 		color: #0F4C81;
 		/* font-weight: bold; */
 	}
+	
+	>>>.el-input__inner{
+		border: 0;
+		border-bottom: 1px solid rgb(128, 125, 125);
+		background-color: #FAF4FE;
+		border-radius: 0;
+	}
 
 	.searchInputItem {
 		display: block;
@@ -175,7 +272,7 @@
 		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 	}
 
-	.searchInputItem:focus {
+	/* .searchInputItem:focus {
 		border-color: #0F4C81;
 		outline: 0;
 	}
@@ -194,5 +291,6 @@
 		font-size: 0.875rem;
 		line-height: 1.5;
 		border-radius: 0.2rem;
-	}
+		cursor: pointer;
+	} */
 </style>

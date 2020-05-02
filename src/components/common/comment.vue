@@ -8,8 +8,8 @@
 				<div class="btncom">
 					<el-button round @click="showWordsbox()">我要评价</el-button>
 				</div>
-				
-				
+
+
 				<div class="wordsbox" v-show="wordsboxStatus" @click="wordsboxClick()" style="display: none;top: 0;">
 					<div class="box" @click="stopProp()">
 						<div class="words-tab">
@@ -20,15 +20,12 @@
 								<i class="el-icon-close" @click="closeClick()"></i>
 							</span>
 						</div>
-				
-						<el-input
-						  type="textarea"
-						  :rows="5"
-						  placeholder="请输入评价"
-						  v-model="textarea">
+
+						<el-input type="textarea" :rows="5" placeholder="请输入评价" v-model="textarea" style="resize: none;" maxlength="150" show-word-limit>
 						</el-input>
+
 						<input type="submit" value="发表评价" @click="subComment()" />
-						
+
 					</div>
 				</div>
 
@@ -83,6 +80,7 @@
 		data: function() {
 			return {
 				textarea: '',
+				// textsum: 0,
 				comments: [{
 						username: '张三',
 						userimg: 'img/user01.jpg',
@@ -112,13 +110,13 @@
 					username: '',
 					userimg: ''
 				},
-				wordsboxStatus:false,
+				wordsboxStatus: false,
 			}
 		},
 
 		methods: {
 			showWordsbox: function() {
-				this.wordsboxStatus=true
+				this.wordsboxStatus = true
 			},
 			wordsboxClick: function() {
 				this.wordsboxStatus = false
@@ -151,17 +149,22 @@
 						this.comments.unshift(obj);
 						this.$message.success('评论成功');
 						$('.el-textarea textarea').val('');
-						this.wordsboxStatus=false;
+						this.wordsboxStatus = false;
 					}
 				}
 			},
 
-		}
+		},
+		// watch: {
+		// 	textarea() {
+		// 		this.textsum = this.textarea.length;
+		// 	}
+		// }
 	}
 </script>
 
 <style scoped>
-	.wordsbox{
+	.wordsbox {
 		position: fixed;
 		z-index: 9999;
 		width: 100%;
@@ -169,7 +172,7 @@
 		background: rgba(0, 0, 0, 0.5);
 		left: 0;
 	}
-	
+
 	.box {
 		height: 260px;
 		width: 560px;
@@ -178,16 +181,16 @@
 		background: #fff;
 		border-radius: 10px;
 	}
-	
-	.words-tab{
+
+	.words-tab {
 		margin: 0px;
 		padding: 0px 32px 0;
 		line-height: 20px;
 		position: relative;
 		display: flex;
 	}
-	
-	.wordstitle{
+
+	.wordstitle {
 		font-size: 16px;
 		font-weight: bold;
 		color: #1c1f21;
@@ -196,8 +199,8 @@
 		text-align: center;
 		padding-right: 405px;
 	}
-	
-	.el-icon-close{
+
+	.el-icon-close {
 		font-size: 24px;
 		cursor: pointer;
 		font-weight: bold;
@@ -206,11 +209,15 @@
 		line-height: 50px;
 		color: #787d82;
 	}
-	
-	.el-icon-close:hover{
+
+	.el-icon-close:hover {
 		color: #0F4C82;
 	}
 	
+	>>>.el-textarea__inner:focus{
+		border-color: #0F4C81;
+	}
+
 	dt {
 		float: left;
 		text-align: center;
@@ -246,16 +253,17 @@
 
 	.comment {
 		float: left;
-		margin-top: 65px;
+		margin-top: 50px;
 		width: 800px;
 		text-align: left;
 		line-height: 30px;
+		min-height: 99px;
 	}
 
 	.date {
 		float: right;
 		margin-right: 60px;
-		margin-top: 50px;
+		margin-top: 0px;
 		font-size: 14px;
 		color: #cccccc;
 	}
@@ -288,18 +296,35 @@
 	.wordsbox {
 		margin-bottom: 50px;
 	}
-	
-	.el-textarea{
+
+	.el-textarea {
 		margin-top: 20px;
 		width: 500px;
 	}
-	
-	.el-button{
+
+	>>>.el-button {
 		float: right;
 		margin-right: 20px;
+		border: 0;
+		font-family: "microsoft yahei";
 	}
 	
-	.btncom{
+	>>>.el-button:hover{
+		color: #fff;
+		background: #0F4C81;
+	}
+	
+	>>>.el-button:active{
+		color: #fff;
+		background: #0F4C81;
+	}
+	
+	>>>.el-button:focus{
+		color: #fff;
+		background: #0F4C81;
+	}
+
+	.btncom {
 		height: 35px;
 	}
 </style>

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {
+	Autocomplete,
 	Carousel,
 	CarouselItem,
 	Backtop,
@@ -69,3 +70,4 @@ Vue.use(Upload)
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Divider);
+Vue.use(Autocomplete);
