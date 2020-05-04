@@ -110,7 +110,7 @@
 				<form name="phone" id="phone">
 					<input type="text" placeholder="    请输入手机号" class="username" style="padding-top: 1px;padding-bottom: 1px;font-size: 15px;" />
 
-					<div class="input-div" v-show="formData.phone" style="display: flex;">
+					<div class="input-div" v-show="formData.phone">
 						<input type="text" class="input code" name="code" v-model.trim="formData.code" placeholder="    请输入验证码">
 						<button @click="getCode(formData)" class="code-btn" :disabled="!show">
 							<span v-show="show">获取验证码</span>
@@ -600,5 +600,9 @@
 		color: #fff;
 		font-family: "Microsoft YaHei";
 		cursor: pointer;
+	}
+	
+	>>>.input-div{
+		display: flex !important;
 	}
 </style>

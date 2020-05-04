@@ -42,8 +42,9 @@
 				<div class="searchInput">
 					<el-autocomplete popper-class="my-autocomplete" v-model="state" :fetch-suggestions="querySearch" placeholder="搜索 课程"
 					 @select="handleSelect">
-						<i class="el-icon-search el-input__icon" slot="suffix" @click="handleIconClick">
-						</i>
+						 <i class="el-icon-search el-input__icon" slot="suffix" @click="handleIconClick">
+						 </i>
+						
 						<template slot-scope="{ item }">
 							<div class="name">{{ item.value }}</div>
 							<!-- <span class="addr">{{ item.address }}</span> -->

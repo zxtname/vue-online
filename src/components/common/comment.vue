@@ -21,7 +21,7 @@
 							</span>
 						</div>
 
-						<el-input type="textarea" :rows="5" placeholder="请输入评价" v-model="textarea" style="resize: none;" maxlength="150" show-word-limit>
+						<el-input type="textarea" :rows="5" placeholder="请输入评价" v-model="textarea" maxlength="150" show-word-limit>
 						</el-input>
 
 						<input type="submit" value="发表评价" @click="subComment()" />
@@ -216,6 +216,10 @@
 	
 	>>>.el-textarea__inner:focus{
 		border-color: #0F4C81;
+	}
+	
+	>>>.el-textarea__inner{
+		resize: none;
 	}
 
 	dt {
