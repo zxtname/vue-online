@@ -53,6 +53,10 @@
 </script>
 
 <style scoped>
+	li{
+		list-style-type: none;
+	}
+	
 	.sidebar {
 		z-index: 66;
 		position: fixed;

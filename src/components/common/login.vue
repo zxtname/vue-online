@@ -2,18 +2,15 @@
 	<div class="loginmain">
 		<!-- 个人用户展示导航 -->
 		<div class="userbar" v-show="userbarsStatus" style="display: none;">
-			<div class="pertitle">
-				<router-link tag="a" :to="{ name: 'personal' }" class="personal">
-				<img :src="this.currentUser.userimg" class="userimg" />
-				<span class="username" v-text="currentUser.username"></span>
-				</router-link>
-				
-			</div>
 
 			<div class="info">
-				<span class="mycourses">我的课程</span>
+				<!-- <span class="mycourses">我的课程</span> -->
 				<span class="loginout" @click="loginout()">退出登录</span>
+			</div>
 
+			<div class="pertitle">
+				<img :src="this.currentUser.userimg" class="userimg" />
+				<!-- <span class="username" v-text="currentUser.username"></span> -->
 			</div>
 
 		</div>
@@ -51,7 +48,7 @@
 					|
 					<span class="alipay-login">支付宝登录</span>
 				</div>
-				
+
 				<div class="privacy">
 					登录即同意淘课盟
 					<a href="https://moco.imooc.com/privacy.html" target="_blank">
@@ -86,17 +83,17 @@
 					|
 					<span class="alipay-login">支付宝登录</span>
 				</div>
-				
+
 				<div class="privacy">
 					登录即同意淘课盟
 					<a href="https://moco.imooc.com/privacy.html" target="_blank">
 						<<隐私政策>>
 					</a>
 				</div>
-				
+
 			</div>
 		</div>
-		
+
 		<!-- 手机登录注册 -->
 		<div class="loginbox phonebox" v-show="phoneStatus" @click="phoneboxClick()" style="display: none;top: 0;">
 			<div class="box" @click="stopProp()">
@@ -109,26 +106,34 @@
 						<i class="el-icon-close" @click="closeClick()"></i>
 					</span>
 				</div>
-		
+
 				<form name="phone" id="phone">
 					<input type="text" placeholder="    请输入手机号" class="username" style="padding-top: 1px;padding-bottom: 1px;font-size: 15px;" />
-					<input type="yzm" placeholder="    请输入验证码" class="yzm" style="font-size: 15px;" />
+
+					<div class="input-div" v-show="formData.phone">
+						<input type="text" class="input code" name="code" v-model.trim="formData.code" placeholder="    请输入验证码">
+						<button @click="getCode(formData)" class="code-btn" :disabled="!show">
+							<span v-show="show">获取验证码</span>
+							<span v-show="!show" class="count">{{count}} s</span>
+						</button>
+					</div>
+					<!-- <input type="yzm" placeholder="    请输入验证码" class="yzm" style="font-size: 15px;" /> -->
 					<input type="button" value="立即注册/登录" @click="phone()" class="blueBtn" style="border: none;border-radius: 50px;color: #FFFFFF;" />
 				</form>
-		
+
 				<div class="others" style="padding-left: 10px;">
 					<span class="phone-login" @click="showLogin() " style="margin-right: 0px;">用户名密码登录</span>
 					|
 					<span class="alipay-login" style="margin-left: 0px;">支付宝登录</span>
 				</div>
-				
+
 				<div class="privacy">
 					登录即同意淘课盟
 					<a href="https://moco.imooc.com/privacy.html" target="_blank">
 						<<隐私政策>>
 					</a>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
@@ -136,15 +141,23 @@
 </template>
 
 <script>
-	import commentevent from '@/commentevent.js'
+	import commentevent from '@/commentevent.js';
+	const TIME_COUNT = 60;
 	export default {
 		name: 'test',
 		data: function() {
 			//原始用户信息
-			return {				
+			return {
 				loginTabs: ['登录', '注册'],
 				currentTabIndex: 0,
 				imgUrl: require("@/assets/close.png"),
+				formData: {
+					phone: '',
+					code: '',
+				},
+				show: true,
+				count: '',
+				timer: null,
 				users: [{
 						username: 'zhangsan',
 						password: '123456',
@@ -168,29 +181,29 @@
 				loginStatus: false,
 				registerStatus: false,
 				userbarsStatus: false,
-				phoneStatus:false,
+				phoneStatus: false,
 				lrBtnStatus: true
 			}
 		},
 		methods: {
-			showPhone:function(){
+			showPhone: function() {
 				document.getElementById("phone").reset()
 				this.loginStatus = false
 				this.registerStatus = false
-				this.phoneStatus=true
+				this.phoneStatus = true
 			},
 			showLogin: function() {
 				document.getElementById("login").reset()
 				this.loginStatus = true
 				this.registerStatus = false
-				this.phoneStatus=false
+				this.phoneStatus = false
 				this.currentTabIndex = 0
 			},
 			showregister: function() {
 				document.getElementById("register").reset()
 				this.loginStatus = false
 				this.registerStatus = true
-				this.phoneStatus=false
+				this.phoneStatus = false
 				this.currentTabIndex = 1
 			},
 			loginout: function() {
@@ -200,7 +213,7 @@
 				// alert('退出成功！');
 				this.userbarsStatus = false;
 				this.lrBtnStatus = true;
-				
+
 				// this.currentUser.userbarsStaus=this.userbarsStaus
 				// let str1=JSON.stringify(this.currentUser);
 				// sessionStorage.setItem("token",str1)
@@ -215,7 +228,7 @@
 			registerboxClick: function() {
 				this.registerStatus = false
 			},
-			phoneboxClick:function(){
+			phoneboxClick: function() {
 				this.phoneStatus = false
 			},
 			stopProp: function(e) {
@@ -238,7 +251,7 @@
 						this.loginStatus = false;
 						this.userbarsStatus = true;
 						this.currentUser.username = this.users[i].username;
-						this.currentUser.userimg = "img/"+this.users[i].userimg;
+						this.currentUser.userimg = "img/" + this.users[i].userimg;
 						this.lrBtnStatus = false;
 						// this.currentUser.userbarsStaus=this.userbarsStaus
 						// let str1=JSON.stringify(this.currentUser);
@@ -287,8 +300,8 @@
 						this.userbarsStatus = true;
 
 						this.currentUser.username = obj.username;
-						this.currentUser.userimg = "img/"+obj.userimg;
-						
+						this.currentUser.userimg = "img/" + obj.userimg;
+
 						// this.currentUser.userbarsStaus=this.userbarsStaus
 						// let str1=JSON.stringify(this.currentUser);
 						// sessionStorage.setItem("token",str1)
@@ -309,16 +322,31 @@
 					document.getElementById("login").reset()
 					this.loginStatus = true
 					this.registerStatus = false
-					this.phoneStatus=false
-				} 
+					this.phoneStatus = false
+				}
 				if (this.currentTabIndex === 1) {
 					document.getElementById("register").reset()
 					this.loginStatus = false
 					this.registerStatus = true
-					this.phoneStatus=false
-				} 
+					this.phoneStatus = false
+				}
 			},
-			
+			getCode(formData) {
+				if (!this.timer) {
+					this.count = TIME_COUNT;
+					this.show = false;
+					this.timer = setInterval(() => {
+						if (this.count > 0 && this.count <= TIME_COUNT) {
+							this.count--;
+						} else {
+							this.show = true;
+							clearInterval(this.timer);
+							this.timer = null;
+						}
+					}, 1000)
+				}
+			}
+
 		}
 	};
 </script>
@@ -424,11 +452,12 @@
 	.userbar {
 		display: flex;
 		height: 70px;
+		font-size: 14px;
 	}
 
 	.userimg {
-		height: 46px;
-		width: 46px;
+		height: 32px;
+		width: 32px;
 		padding: 0px 0;
 		border-radius: 50%;
 		cursor: pointer;
@@ -437,7 +466,7 @@
 	.username {
 		display: block;
 		padding: 0px 0;
-		font-size: 16px;
+		font-size: 14px;
 		color: #0F4C82;
 		font-weight: bolder;
 	}
@@ -446,6 +475,7 @@
 		display: block;
 		padding: 5px 5px;
 		cursor: pointer;
+		height: 25px;
 	}
 
 	.mycourses:hover {
@@ -456,7 +486,7 @@
 
 	.loginout:hover {
 		color: #FFFFFF;
-		background-color: #6A8DC3;
+		background-color: #0F4C82;
 		border-radius: 3px;
 	}
 
@@ -464,15 +494,18 @@
 		display: block;
 		padding: 5px 5px;
 		cursor: pointer;
+		height: 22px;
 	}
 
 	.pertitle {
-		padding-left: 70px;
+		padding-left: 18px;
+		padding-top: 20px;
 	}
 
 	.info {
 		padding-left: 25px;
-		padding-top: 5px;
+		padding-top: 22px;
+		display: flex;
 	}
 
 	.buttons {
@@ -508,7 +541,7 @@
 		color: #0f4c81;
 		cursor: pointer;
 	}
-	
+
 	.alipay-login {
 		display: inline-block;
 		vertical-align: right;
@@ -521,37 +554,55 @@
 		color: #0f4c81;
 		cursor: pointer;
 	}
-	
-	.others{
+
+	.others {
 		padding-top: 5px;
 		display: flex;
 	}
-	
+
 	.privacy {
 		padding-top: 15px;
-	    font-size: 12px;
-	    color: #717a84;
-	    text-align: center;
+		font-size: 12px;
+		color: #717a84;
+		text-align: center;
 	}
-	
+
 	.privacy a:visited {
-	    font-size: 12px;
-	    color: #37f;
+		font-size: 12px;
+		color: #37f;
 	}
-	
+
 	.privacy a {
-	    font-size: 12px;
-	    color: #37f;
+		font-size: 12px;
+		color: #37f;
 	}
-	
-	.el-icon-close{
+
+	.el-icon-close {
 		font-size: 24px;
 		cursor: pointer;
 		font-weight: bold;
 	}
-	
-	.el-icon-close:hover{
+
+	.el-icon-close:hover {
 		transform: scale(1.2);
 		color: #0F4C82;
+	}
+	
+	.code-btn{
+		height: 40px;
+		font-size: 16px;
+		border: 0;
+		margin-left: 5px;
+		margin-top: 10px;
+		width: 150px;
+		border-radius: 5px;
+		background: #6A8DC3;
+		color: #fff;
+		font-family: "Microsoft YaHei";
+		cursor: pointer;
+	}
+	
+	>>>.input-div{
+		display: flex !important;
 	}
 </style>
