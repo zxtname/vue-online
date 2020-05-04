@@ -1,7 +1,10 @@
 <template>
 	<div class="userbar" v-show="userbarsStatus" style="display: none;">
+		<router-link tag="a" :to="{ name: 'personal' }" class="personal">
 		<span class="class" >我的课程</span>
+		</router-link>
 		<img :src="'@/assets/img/'+currentUser.userimg" class="userimg"/>
+		
 		<span class="loginout" @click="loginout()">退出登录</span>
 		<span class="username" v-text="currentUser.username"></span>
 	</div>

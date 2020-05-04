@@ -3,8 +3,11 @@
 		<!-- 个人用户展示导航 -->
 		<div class="userbar" v-show="userbarsStatus" style="display: none;">
 			<div class="pertitle">
+				<router-link tag="a" :to="{ name: 'personal' }" class="personal">
 				<img :src="this.currentUser.userimg" class="userimg" />
 				<span class="username" v-text="currentUser.username"></span>
+				</router-link>
+				
 			</div>
 
 			<div class="info">

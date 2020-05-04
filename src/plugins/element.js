@@ -33,6 +33,9 @@ import {
 	TabPane,
 	Divider,
 	Icon,
+	Select,
+	Option,
+	// VideoPlayer,
 } from 'element-ui'
 
 Vue.use(Backtop)
@@ -69,3 +72,6 @@ Vue.use(Upload)
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Divider);
+Vue.use(Select);
+Vue.use(Option);
+// Vue.use(VideoPlayer)
