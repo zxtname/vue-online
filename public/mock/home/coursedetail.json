@@ -1,0 +1,43 @@
+{
+  "code": 1,
+  "msg": "ok",
+  "data": {
+    "course": {
+      "id": 1,
+      "courseName": "针灸学",
+      "imgUrl": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586582030052&di=bfe492c46bb7222daca868a8cb23694a&imgtype=0&src=http%3A%2F%2Fwww.kfzimg.com%2FW02%2F50%2F1b%2F501b1245457a855f3bd385fc9ad318b6_b.jpg",
+      "price": 500,
+      "remark": "<p>\r\n\t\t\t\t\t关于此课程\r\n\t\t\t\t\t<br />\r\n\r\n\t\t\t\t\t中山大学《医学统计学》已有40年历史，2008年获评国家级精品课程，2010年获评国家级双语示范课程，2011年获评广东省网络教育类精品课程，2012年获评国家精品资源共享课，2013年获评教育部来华留学生英语授课品牌课程。中山大学也是卫生部规划教材《卫生统计学》第五、六、七版的主编单位和中国高等教育学会医学教育专业委员会规划教材《医学统计学》的主编单位。针对不同医学专业的特点，中山大学《医学统计学》的教学时数为50-100学时。目前，包括成人教育及远程教育在内，课程每学年的授课对象超过3000人。\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t《医学统计学（高级篇）》课程内容共8章，每章的课时安排如下：\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t（1）观察性研究的设计与分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（2）实验研究的设计和分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（3）临床试验的设计与分析，课程计划时长90分钟，包括6个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（4）多重线性回归与相关，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（5）Logistic回归分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。 （6）寿命表，课程计划时长60分钟，包括4个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（7）生存分析，课程计划时长75分钟，包括4个微视频，每个微视频计划时长15~20分钟。 （8）Meta分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t</p>",
+      "creatTime": "2020-04-04 10:28:54",
+      "courseAudit": "admin,",
+      "stopFlag": 0,
+      "imgName": "c7d85303-2785-4848-9047-41fdecb3a7f8.png",
+      "isFree": 0,
+      "courseCode": "Z002",
+      "isMadical": 1,
+      "classfyName": "中医中药"
+    },
+    "videos": [
+      {
+        "id": 1,
+        "vName": "针灸学",
+        "videoUrl": "http://localhost:8888/video/eb830245-ef6a-4240-b3d8-64481f0108bf.mp4",
+        "crouserId": 1,
+        "videoName": "2.MP4",
+        "stopFlag": 0,
+        "createTime": "2020-04-04 10:20:43",
+        "videoType": "MP4"
+      },
+      {
+        "id": 7,
+        "vName": "我叫王宝强",
+        "videoUrl": "http://localhost:8888/video/a80ba08e-71ab-416b-8ef0-e75102b62813.mp4",
+        "crouserId": 1,
+        "videoName": null,
+        "stopFlag": 0,
+        "createTime": "2020-04-26 08:04:29",
+        "videoType": "Mp4"
+      }
+    ]
+  }
+}

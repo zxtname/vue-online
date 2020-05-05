@@ -3,9 +3,9 @@
 		<div class="bg-mask" :style="getBackgroundImage" />
 		<div class="block w">
 			<el-carousel height="382px" :interval="2000" @change="handelCarouselChange">
-				<el-carousel-item v-for="(item, index) in CarouselList" :key="index">
+				<el-carousel-item v-for="(item, index) in CarouselList" :key="index"  >
 					<!-- <h3 class="small">{{ item }}</h3> -->
-					<img :src="item.imgUrl" alt class="carousel-img" />
+					<img :src="item.imgUrl" alt class="carousel-img" @click="link(item.id)"/>
 				</el-carousel-item>
 			</el-carousel>
 		</div>
@@ -50,6 +50,12 @@ export default {
 		},
 		handelCarouselChange(index) {
 			this.currentCarousel = this.CarouselList[index].imgUrl;
+		},
+		link(id){
+			this.$router.push({
+			        name:'coursesdetail',
+			　　　　 query:{id:id}
+			}) 
 		}
 	},
 	computed: {

@@ -3,13 +3,14 @@
 	<div class="cards">
 		<ul class="course-list" style="padding-left: 0px;">
 			<li v-for="(item, index) in dataList == null ? defaultData : dataList" :key="index" class="course-item">
-				<router-link tag="a" :to="{ name: 'coursesdetail' }" class="coursesdetail">
-				<div class="img-box">
-					<img :src="item.imgUrl" />
-					<div class="tags">
-						<span class="tag-item">{{ item.classfyName }}</span>
+				<!-- <router-link tag="a" :to="`/coursesdetail/${item.id}`" class="coursesdetail"> -->
+				<router-link tag="a" :to="{ name: 'coursesdetail', query: { id: item.id } }" class="coursesdetail">
+					<div class="img-box">
+						<img :src="item.imgUrl" />
+						<div class="tags">
+							<span class="tag-item">{{ item.classfyName }}</span>
+						</div>
 					</div>
-				</div>
 				</router-link>
 				<p class="course-name">{{ item.courseName }}</p>
 				<p class="course-teacher">主讲人：{{ item.courseAudit }}</p>
@@ -66,7 +67,7 @@ export default {
 	/* height: 314px;
 		width: 100%;
 		margin: 70px 0px 0px 0px; */
-	margin-top: 70px;;
+	margin-top: 70px;
 }
 
 .course-list {
@@ -84,7 +85,7 @@ export default {
 	-webkit-box-flex: 0;
 	flex: 0 0 20%;
 	cursor: pointer;
-	padding-bottom: 50px
+	padding-bottom: 50px;
 }
 
 .course-item:hover .course-name {

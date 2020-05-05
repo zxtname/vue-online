@@ -9,3 +9,12 @@ export const GetCourseInfo = (query) => {
 		data:query
 	});
 }
+//根据CourseId获取course的详细信息
+export const GetCourseDetailById=(courseId)=>
+{
+	return request({
+		url: 'home/coursedetail.json',
+		method: 'get',
+		params:{courseId:courseId}
+	});
+}

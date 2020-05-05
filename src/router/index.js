@@ -56,51 +56,51 @@ const router = new Router({
 			}
 		},
 		{
-			path:'/nmedcourses',
-			name:'nmedcourses',
-			component:__import__('nmedcourses'),
-			meta:{
-				title:'非医学专区-淘课盟'
+			path: '/nmedcourses',
+			name: 'nmedcourses',
+			component: __import__('nmedcourses'),
+			meta: {
+				title: '非医学专区-淘课盟'
 			}
 		},
 		{
-			path:'/coursesdetail',
-			name:'coursesdetail',
-			component:__import__('coursesdetail'),
-			meta:{
-				title:'课程详情-淘课盟'
+			path: '/coursesdetail',
+			name: 'coursesdetail',
+			component: __import__('coursesdetail'),
+			meta: {
+				title: '课程详情-淘课盟'
+			}			
+		},
+		{
+			path: '/pay',
+			name: 'pay',
+			component: __import__('pay'),
+			meta: {
+				title: '确认订单-淘课盟'
 			}
 		},
 		{
-			path:'/pay',
-			name:'pay',
-			component:__import__('pay'),
-			meta:{
-				title:'确认订单-淘课盟'
+			path: '/search',
+			name: 'search',
+			component: __import__('search'),
+			meta: {
+				title: '搜索-淘课盟'
 			}
 		},
 		{
-			path:'/search',
-			name:'search',
-			component:__import__('search'),
-			meta:{
-				title:'搜索-淘课盟'
+			path: '/personal',
+			name: 'personal',
+			component: __import__('personal'),
+			meta: {
+				title: '个人中心-淘课盟'
 			}
 		},
 		{
-			path:'/personal',
-			name:'personal',
-			component:__import__('personal'),
-			meta:{
-				title:'个人中心-淘课盟'
-			}
-		},
-		{
-			path:'/videoplay',
-			name:'videoplay',
-			component:__import__('videoplay'),
-			meta:{
-				title:'视频播放-淘课盟'
+			path: '/videoplay',
+			name: 'videoplay',
+			component: __import__('videoplay'),
+			meta: {
+				title: '视频播放-淘课盟'
 			}
 		},
 	]

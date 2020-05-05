@@ -19,7 +19,7 @@
 		<!-- 内容部分 -->
 		<div class="detail-information m-center cw">
 		  <div class="introduction">
-		    <component :is="componentName" :list="content" />
+		    <component :is="componentName" :list="content" :dataList="dataList" />
 			<!-- <introduction></introduction> -->
 		  </div>
 		</div>
@@ -38,7 +38,13 @@
 	      default () {
 	        return {}
 	      }
-	    }
+	    },
+		dataList:{
+			type: Object,
+			default () {
+			  return {}
+			}
+		}
 	  },
 	  data () {
 	    return {

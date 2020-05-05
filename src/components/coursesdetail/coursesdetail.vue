@@ -3,11 +3,11 @@
 	
 	<!-- 课程页面固定头部 -->
 	<div class="course-hd">
-		<coursesdetailhd></coursesdetailhd>
+		<coursesdetailhd :dataList="dataList"></coursesdetailhd>
 			
 		<!-- 分页小导航部分 -->
 		<div class="cnavmenu">
-			<cdetailcontent></cdetailcontent>
+			<cdetailcontent :dataList="dataList"></cdetailcontent>
 		</div>
 		
 		<!-- 分页小导航完成 -->
@@ -25,6 +25,9 @@
 	// import introduction from '@/components/coursesdetail/introduction.vue'
 	
 	export default {
+		props: {
+			dataList:{}
+		},
 		name: 'CourseDetail',
 		components:{
 			// comment,
@@ -42,9 +45,11 @@
 			};
 	      },
 	    created () {
-	      this.$nextTick(() => {
-	        this.getCourseDetailData()
-	      })
+			// console.log(this.dataList)
+			// console.log(this.$route.query.id)
+	      // this.$nextTick(() => {
+	      //   this.getCourseDetailData()
+	      // })
 	    },
 	   //  methods: {
 	   //    handleClick(tab, event) {
@@ -60,15 +65,15 @@
 	   //  }
 	   methods: {
 	     // 获取课程详情
-	     getCourseDetailData () {
-	       const id = this.$route.params.id
-	       getCourseDetail(id).then(res => {
-	         let { code, data } = res
-	         if (code === ERR_OK) {
-	           this.courseDetail = data
-	         }
-	       })
-	     }
+	     // getCourseDetailData () {
+	     //   const id = this.$route.params.id
+	     //   getCourseDetail(id).then(res => {
+	     //     let { code, data } = res
+	     //     if (code === ERR_OK) {
+	     //       this.courseDetail = data
+	     //     }
+	     //   })
+	     // }
 	   },
 	  };
 	
