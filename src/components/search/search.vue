@@ -22,6 +22,7 @@
 					</a>
 				</div>
 				<searchcourses></searchcourses>
+				<tabPage :totalPage="totalPage" @changePage="changePage"></tabPage>
 			</div>
 		</div>
 	</div>
@@ -29,15 +30,29 @@
 
 <script>
 	import searchcourses from '@/components/search/searchcourses.vue'
+	import tabPage from '@/components/common/tabPage.vue' 
+	import { GetCourseInfo } from 'api/medcourses';
+	
 	export default {
 		components: {
 			searchcourses,
+			tabPage,
 		},
 		data() {
 			return {
 				courses: [],
-				state: ''
+				state: '',
+				totalPage: 1,
+				coursesContent: [],
+				query: {
+					pageNum: 1,
+					courseName:'',
+					classfyName:''
+				},
 			};
+		},
+		created() {
+			this.GetData();
 		},
 		methods:{
 			querySearch(queryString, cb) {
@@ -75,7 +90,22 @@
 			},
 			handleIconClick(ev) {
 				console.log(ev);
-			}
+			},
+			changePage(page) {
+				this.query.pageNum = page;
+				// this.routerTo();
+				this.GetData();
+			},
+			async GetData() {
+				//获取数据信息
+				const { data: res2 } = await GetCourseInfo(this.query);
+				if (res2.code !== 1) {
+					this.$message.error('获取数据失败');
+				}
+				this.coursesContent = res2.data;
+				this.totalPage = res2.totalPage;
+				// console.log(res2)
+			},
 		},
 		mounted() {
 			this.courses = this.loadAll();
@@ -192,7 +222,7 @@
 	.search-content {
 		float: left;
 		width: 1168px;
-		padding-bottom: 20px;
+		/* padding-bottom: 20px; */
 	}
 
 	.search-all {

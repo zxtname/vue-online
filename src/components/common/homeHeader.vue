@@ -119,6 +119,9 @@
 			},
 			handleIconClick(ev) {
 				console.log(ev);
+				this.$router.push({
+					path:'/search',
+				})
 			}
 		},
 		mounted() {

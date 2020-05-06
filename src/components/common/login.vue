@@ -9,7 +9,10 @@
 			</div>
 
 			<div class="pertitle">
-				<img :src="this.currentUser.userimg" class="userimg" />
+				<router-link tag="a" :to="{ name: 'personal' }" class="personalA">
+					<img :src="this.currentUser.userimg" class="userimg" />
+				</router-link>
+				
 				<!-- <span class="username" v-text="currentUser.username"></span> -->
 			</div>
 
@@ -51,9 +54,11 @@
 
 				<div class="privacy">
 					登录即同意淘课盟
-					<a href="https://moco.imooc.com/privacy.html" target="_blank">
+					<router-link tag="a" :to="{ name: 'privacy' }" class="privacyA">
+						<a @click="closeClick()">
 						<<隐私政策>>
-					</a>
+						</a>
+					</router-link>
 				</div>
 
 			</div>
@@ -86,9 +91,14 @@
 
 				<div class="privacy">
 					登录即同意淘课盟
-					<a href="https://moco.imooc.com/privacy.html" target="_blank">
+					<router-link tag="a" :to="{ name: 'privacy' }" class="privacyA">
+						<a @click="closeClick()">
 						<<隐私政策>>
-					</a>
+						</a>
+					</router-link>
+					<!-- <a href="https://moco.imooc.com/privacy.html" target="_blank">
+						<<隐私政策>>
+					</a> -->
 				</div>
 
 			</div>
@@ -129,9 +139,11 @@
 
 				<div class="privacy">
 					登录即同意淘课盟
-					<a href="https://moco.imooc.com/privacy.html" target="_blank">
+					<router-link tag="a" :to="{ name: 'privacy' }" class="privacyA">
+						<a @click="closeClick()">
 						<<隐私政策>>
-					</a>
+						</a>
+					</router-link>
 				</div>
 
 			</div>

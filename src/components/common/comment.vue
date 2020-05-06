@@ -1,5 +1,5 @@
 <template>
-	<div id="comment">
+	<div id="comment" style="margin-left: 27px;">
 
 		<!--评论-->
 		<div class="wcommentbox">

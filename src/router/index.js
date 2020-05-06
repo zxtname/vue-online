@@ -103,6 +103,30 @@ const router = new Router({
 				title: '视频播放-淘课盟'
 			}
 		},
+		{
+			path: '/help',
+			name: 'help',
+			component: __import__('help'),
+			meta: {
+				title: '帮助中心-淘课盟'
+			}
+		},
+		{
+			path: '/privacy',
+			name: 'privacy',
+			component: __import__('privacy'),
+			meta: {
+				title: '隐私政策-淘课盟'
+			}
+		},
+		{
+			path: '/suggestion',
+			name: 'suggestion',
+			component: __import__('suggestion'),
+			meta: {
+				title: '意见反馈-淘课盟'
+			}
+		},
 	]
 });
 

@@ -1,14 +1,20 @@
 <template>
 	<div class="sidebar">
 		<ul class="sidebar-list">
-			<li class="sidebar-item">
-				<img :src="imgUrl" width="34" height="34" class="sidebar-item-img" />
-				<span class="sidebar-text">意见反馈</span>
-			</li>
-			<li class="sidebar-item">
-				<img :src="imgUrl2" width="34" height="34" class="sidebar-item-img" />
-				<span class="sidebar-text">帮助中心</span>
-			</li>
+			<router-link tag="a" :to="{ name: 'suggestion' }" class="suggestionA">
+				<li class="sidebar-item">
+					<img :src="imgUrl" width="34" height="34" class="sidebar-item-img" />
+					<span class="sidebar-text">意见反馈</span>
+				</li>
+			</router-link>
+			
+			<router-link tag="a" :to="{ name: 'help' }" class="helpA">
+				<li class="sidebar-item">
+					<img :src="imgUrl2" width="34" height="34" class="sidebar-item-img" />
+					<span class="sidebar-text">帮助中心</span>
+				</li>
+			</router-link>
+			
 			<li class="sidebar-item wechat">
 				<img :src="imgUrl3" width="34" height="34" class="sidebar-item-img" />
 				<span class="sidebar-text">官方微信</span>
