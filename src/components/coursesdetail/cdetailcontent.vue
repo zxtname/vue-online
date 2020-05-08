@@ -14,12 +14,11 @@
 		      <span v-if="nav.number" class="nav-number">{{ nav.number }}</span>  
 		    </li>
 		  </ul>
-		
 		</div>
 		<!-- 内容部分 -->
 		<div class="detail-information m-center cw">
 		  <div class="introduction">
-		    <component :is="componentName" :list="content" :dataList="dataList" />
+		    <component :is="componentName" :list="content" />
 			<!-- <introduction></introduction> -->
 		  </div>
 		</div>
@@ -38,13 +37,7 @@
 	      default () {
 	        return {}
 	      }
-	    },
-		dataList:{
-			type: Object,
-			default () {
-			  return {}
-			}
-		}
+	    }
 	  },
 	  data () {
 	    return {
@@ -143,7 +136,7 @@
 	    .information-left{
 	      flex: 1;}
 	    .information-right{
-	      margin-left: 32px;
+	      /* margin-left: 32px; */
 	      flex: 0 0 320px;
 	      width: 320px;}
 	      /* & > div

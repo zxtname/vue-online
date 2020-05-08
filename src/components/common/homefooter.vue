@@ -1,9 +1,11 @@
 <template>
 	<div class="homefooter">
-		<a class="link">关于我们 |</a>
-		<a class="link">联系方式 |</a>
-		<a class="link">加入我们 |</a>
-		<a class="link">帮助中心</a>
+		
+			<a class="link" @click="aboutus()">关于我们 |</a>
+		
+			<a class="link" @click="contact()">联系方式 |</a>
+			<a class="link" @click="joinus()">加入我们 |</a>
+			<a class="link">帮助中心</a>
 	</div>
 </template>
 
@@ -15,6 +17,23 @@
 
 			}
 		},
+		methods:{
+			aboutus(){
+				this.$router.push({
+					path:'/aboutus',
+				})
+			},
+			contact(){
+				this.$router.push({
+					path:'/contact',
+				})
+			},
+			joinus(){
+				this.$router.push({
+					path:'/joinus',
+				})
+			},
+		}
 	}
 </script>
 

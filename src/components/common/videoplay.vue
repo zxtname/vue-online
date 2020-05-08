@@ -2,7 +2,7 @@
 	<div class="container">
 		<!-- <div class="test"></div> -->
 		<div class="vplayerbox">
-			<video-player  class="video-player vjs-custom-skin"
+			<video-player  class="video-player vjs-custom-skin vjs-big-play-centered"
 			  ref="videoPlayer" 
 			  :playsinline="true" 
 			  :options="playerOptions"
@@ -27,8 +27,8 @@
 	        aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
 	        fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
 	        sources: [{
-	          type: "application/x-mpegURL",
-	          src: "https://v.qq.com/x/page/e3059ekcz61.html" //你的m3u8地址（必填）
+	          type: "video/mp4",
+	          src: "http://localhost:80/testvideo 03.mp4" //你的m3u8地址（必填）
 	        }],
 	        poster: "poster.jpg", //你的封面地址
 	        width: document.documentElement.clientWidth,
@@ -70,5 +70,16 @@
     background-color: #efefef;
     min-height: 100%;
   }
-  
+  /* 调整播放器样式 */
+  .video-js .vjs-icon-placeholder {
+	  
+      width: 100%;
+      height: 100%;
+      display: block;
+  }
+  .vjs-big-play-button{
+	  margin-top: 50px;
+	  
+  }
+
 </style>

@@ -1,9 +1,7 @@
 <template>
 	<div class="introduction" v-if="dataList.course!=undefined">
 		<div class="video">
-			<!-- <div class="test">
-				<videoplay></videoplay>
-			</div> -->
+			
 			<ul>
 				<li><img src="../../assets/play.png" alt="" /></li>
 				<li><el-button type="text" @click="dialogVisible = true">点击播放视频</el-button></li>
@@ -69,6 +67,9 @@ export default {
 <style>
 li {
 	list-style: none;
+}
+.introduction{
+	height: 1500px;
 }
 .video {
 	display: block;

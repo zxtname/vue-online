@@ -7,7 +7,7 @@ import Router from "vue-router";
 Vue.use(Router);
 
 // 导入这个路由下使用的组件
-// 我们还没有写首页，就用 Vue 的欢迎界面吧。
+
 // @ 指向的目录是 src.
 const __import__ = file => () => import(`@/pages/${file}.vue`);
 
@@ -125,6 +125,30 @@ const router = new Router({
 			component: __import__('suggestion'),
 			meta: {
 				title: '意见反馈-淘课盟'
+			}
+		},
+		{
+			path: '/aboutus',
+			name: 'aboutus',
+			component: __import__('aboutus'),
+			meta: {
+				title: '关于我们-淘课盟'
+			}
+		},
+		{
+			path: '/contact',
+			name: 'contact',
+			component: __import__('contact'),
+			meta: {
+				title: '联系我们-淘课盟'
+			}
+		},
+		{
+			path: '/joinus',
+			name: 'joinus',
+			component: __import__('joinus'),
+			meta: {
+				title: '加入我们-淘课盟'
 			}
 		},
 	]

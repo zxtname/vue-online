@@ -9,7 +9,7 @@
 		<el-input type="textarea" :rows="10" placeholder="请输入反馈" v-model="textarea" maxlength="500" show-word-limit>
 		</el-input>
 
-		<input class="subbtn" type="submit" value="发表评价" @click="subComment()" />
+		<input class="subbtn" type="submit" value="发送反馈" @click="subComment()" />
 
 	</div>
 	</div>

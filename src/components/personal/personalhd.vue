@@ -160,10 +160,10 @@
 			  //         });
 			  //     }
 		    },
-			// created() {
-			//     // 获取头像
-			//     this.getAvatar();
-			// }
+			created() {
+			    // 获取头像
+			    this.getAvatar();
+			}
 	  };
 </script>
 

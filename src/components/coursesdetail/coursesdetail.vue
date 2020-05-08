@@ -20,9 +20,9 @@
 <script>
 	import coursesdetailhd from '@/components/coursesdetail/coursesdetailhd.vue'
 	import cdetailcontent from '@/components/coursesdetail/cdetailcontent.vue'
-	// import comment from '@/components/common/comment.vue'
-	// import videoplay from '@/components/common/videoplay.vue'
-	// import introduction from '@/components/coursesdetail/introduction.vue'
+	import comment from '@/components/common/comment.vue'
+	import videoplay from '@/components/common/videoplay.vue'
+	import introduction from '@/components/coursesdetail/introduction.vue'
 	
 	export default {
 		props: {
