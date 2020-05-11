@@ -1,13 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import login from './modules/login.js';
-import * as getters from './getters.js';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  modules: {
-	login,
-  },
-  getters
-});
+const store = new Vuex.Store({
+    state:sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')):{
+        userbarsStatus:'',
+        username:'',
+		userimg:'',
+		lrBtnStatus:''
+    }
+})
+
+export default store

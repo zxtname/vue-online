@@ -5,7 +5,7 @@
 		
 			<a class="link" @click="contact()">联系方式 |</a>
 			<a class="link" @click="joinus()">加入我们 |</a>
-			<a class="link">帮助中心</a>
+			<a class="link" @click="help()">帮助中心</a>
 	</div>
 </template>
 
@@ -31,6 +31,11 @@
 			joinus(){
 				this.$router.push({
 					path:'/joinus',
+				})
+			},
+			help(){
+				this.$router.push({
+					path:'/help',
 				})
 			},
 		}

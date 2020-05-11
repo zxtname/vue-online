@@ -12,7 +12,7 @@
 				<router-link tag="a" :to="{ name: 'personal' }" class="personalA">
 					<img :src="this.currentUser.userimg" class="userimg" />
 				</router-link>
-				
+
 				<!-- <span class="username" v-text="currentUser.username"></span> -->
 			</div>
 
@@ -27,7 +27,7 @@
 			</a>
 		</div>
 
-		<!-- 登录 -->
+		<!-- 账号登录 -->
 		<div class="loginbox" v-show="loginStatus" @click="loginboxClick()" style="display: none;top: 0;">
 			<div class="box" @click="stopProp()">
 				<div class="login-tab">
@@ -41,7 +41,7 @@
 				</div>
 
 				<form name="login" id="login">
-					<input type="text" placeholder="    请输入用户名" class="username" style="padding-top: 1px;padding-bottom: 1px;font-size: 15px;" />
+					<input type="text" placeholder="    请输入手机号" class="username" style="padding-top: 1px;padding-bottom: 1px;font-size: 15px;" />
 					<input type="password" placeholder="    请输入密码" class="psw" style="font-size: 15px;" />
 					<input type="button" value="立即登录" @click="login()" class="blueBtn" style="border: none;border-radius: 50px;color: #FFFFFF;" />
 				</form>
@@ -56,7 +56,7 @@
 					登录即同意淘课盟
 					<router-link tag="a" :to="{ name: 'privacy' }" class="privacyA">
 						<a @click="closeClick()">
-						<<隐私政策>>
+							<<隐私政策>>
 						</a>
 					</router-link>
 				</div>
@@ -66,7 +66,7 @@
 
 		<!-- 注册 -->
 		<div class="loginbox registerbox" v-show="registerStatus" @click="registerboxClick()" style="display: none;top: 0;">
-			<div class="box" @click="stopProp()">
+			<div class="box" @click="stopProp()" style="height: 330px;">
 				<div class="login-tab">
 					<span v-for="(item,index) in loginTabs" :key="index" class="login-tab-item" :class="{active: index==currentTabIndex}"
 					 @click="handleLoginTabClick(index);">
@@ -78,33 +78,38 @@
 				</div>
 
 				<form name="register" id="register">
-					<input type="text" placeholder="    请输入用户名" class="username" style="padding-top: 1px;padding-bottom: 1px;font-size: 15px;" />
+					<input type="text" placeholder="    请输入手机号" class="username" style="padding-top: 1px;padding-bottom: 1px;font-size: 15px;" />
 					<input type="password" placeholder="    请输入密码" class="psw" style="font-size: 15px;" />
+
+					<div class="input-div" v-show="formData.phone">
+						<input type="text" class="input code" name="code" v-model.trim="formData.code" placeholder="    请输入验证码">
+						<button @click="getCode(formData)" class="code-btn" :disabled="!show">
+							<span v-show="show">获取验证码</span>
+							<span v-show="!show" class="count">{{count}} s</span>
+						</button>
+					</div>
+
 					<input type="button" value="立即注册" @click="register()" class="blueBtn" style="border: none;border-radius: 50px;color: #FFFFFF;" />
 				</form>
 
-				<div class="others">
-					<span class="phone-login" @click="showPhone()">手机短信注册</span>
-					|
-					<span class="alipay-login">支付宝登录</span>
+				<div class="others" style="padding-top: 0;">
+					<span class="othersway">其他注册方式：</span>
+					<span class="alipay-login" style="margin-left: 50px;">支付宝注册</span>
 				</div>
 
-				<div class="privacy">
+				<div class="privacy" style="padding-top: 10px;">
 					登录即同意淘课盟
 					<router-link tag="a" :to="{ name: 'privacy' }" class="privacyA">
 						<a @click="closeClick()">
-						<<隐私政策>>
+							<<隐私政策>>
 						</a>
 					</router-link>
-					<!-- <a href="https://moco.imooc.com/privacy.html" target="_blank">
-						<<隐私政策>>
-					</a> -->
 				</div>
 
 			</div>
 		</div>
 
-		<!-- 手机登录注册 -->
+		<!-- 手机登录 -->
 		<div class="loginbox phonebox" v-show="phoneStatus" @click="phoneboxClick()" style="display: none;top: 0;">
 			<div class="box" @click="stopProp()">
 				<div class="login-tab">
@@ -119,29 +124,29 @@
 
 				<form name="phone" id="phone">
 					<input type="text" placeholder="    请输入手机号" class="username" style="padding-top: 1px;padding-bottom: 1px;font-size: 15px;" />
-
-					<div class="input-div" v-show="formData.phone">
+					<div v-if="error" class="invalid-feedback">{{error}}</div>
+					<div class="input-div" v-show="formData.phone" v-model="tphone">
 						<input type="text" class="input code" name="code" v-model.trim="formData.code" placeholder="    请输入验证码">
 						<button @click="getCode(formData)" class="code-btn" :disabled="!show">
 							<span v-show="show">获取验证码</span>
 							<span v-show="!show" class="count">{{count}} s</span>
 						</button>
 					</div>
-					<!-- <input type="yzm" placeholder="    请输入验证码" class="yzm" style="font-size: 15px;" /> -->
-					<input type="button" value="立即注册/登录" @click="phone()" class="blueBtn" style="border: none;border-radius: 50px;color: #FFFFFF;" />
+
+					<input type="button" value="立即登录" @click="phone()" class="blueBtn" style="border: none;border-radius: 50px;color: #FFFFFF;" />
 				</form>
 
-				<div class="others" style="padding-left: 10px;">
-					<span class="phone-login" @click="showLogin() " style="margin-right: 0px;">用户名密码登录</span>
+				<div class="others">
+					<span class="phone-login" @click="showLogin()">账号密码登录</span>
 					|
-					<span class="alipay-login" style="margin-left: 0px;">支付宝登录</span>
+					<span class="alipay-login">支付宝登录</span>
 				</div>
 
 				<div class="privacy">
 					登录即同意淘课盟
 					<router-link tag="a" :to="{ name: 'privacy' }" class="privacyA">
 						<a @click="closeClick()">
-						<<隐私政策>>
+							<<隐私政策>>
 						</a>
 					</router-link>
 				</div>
@@ -167,6 +172,7 @@
 					phone: '',
 					code: '',
 				},
+				tphone:'',
 				show: true,
 				count: '',
 				timer: null,
@@ -194,7 +200,21 @@
 				registerStatus: false,
 				userbarsStatus: false,
 				phoneStatus: false,
-				lrBtnStatus: true
+				lrBtnStatus: true,
+				error: ''
+			}
+		},
+		created() {
+			const dataA = JSON.parse(sessionStorage.getItem('sta'));
+			const dataB = JSON.parse(sessionStorage.getItem('bsta'));
+			const dataC = JSON.parse(sessionStorage.getItem('uimg'));
+			if (dataA == undefined && dataB == undefined) {
+				this.userbarsStatus = false
+				this.lrBtnStatus = true
+			} else {
+				this.userbarsStatus = dataA
+				this.lrBtnStatus = dataB
+				this.currentUser.userimg = dataC
 			}
 		},
 		methods: {
@@ -222,7 +242,6 @@
 				this.currentUser.username = ''
 				this.currentUser.userimg = ''
 				this.$message.info('退出成功！')
-				// alert('退出成功！');
 				this.userbarsStatus = false;
 				this.lrBtnStatus = true;
 
@@ -232,6 +251,7 @@
 				sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
 				sessionStorage.setItem('uname', JSON.stringify(this.currentUser.username));
 				sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
+				sessionStorage.setItem('bsta', JSON.stringify(this.lrBtnStatus));
 			},
 			//遮罩层
 			loginboxClick: function() {
@@ -271,6 +291,7 @@
 						sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
 						sessionStorage.setItem('uname', JSON.stringify(this.currentUser.username));
 						sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
+						sessionStorage.setItem('bsta', JSON.stringify(this.lrBtnStatus));
 
 						break;
 					}
@@ -324,6 +345,9 @@
 						this.lrBtnStatus = false;
 						document.getElementById("register").reset();
 						this.registerStatus = false;
+
+						sessionStorage.setItem('bsta', JSON.stringify(this.lrBtnStatus));
+
 					}
 				}
 			},
@@ -344,22 +368,41 @@
 				}
 			},
 			getCode(formData) {
-				if (!this.timer) {
-					this.count = TIME_COUNT;
-					this.show = false;
-					this.timer = setInterval(() => {
-						if (this.count > 0 && this.count <= TIME_COUNT) {
-							this.count--;
-						} else {
-							this.show = true;
-							clearInterval(this.timer);
-							this.timer = null;
-						}
-					}, 1000)
+				if (this.validatePhone()) {
+					if (!this.timer) {
+						this.count = TIME_COUNT;
+						this.show = false;
+						this.timer = setInterval(() => {
+							if (this.count > 0 && this.count <= TIME_COUNT) {
+								this.count--;
+							} else {
+								this.show = true;
+								clearInterval(this.timer);
+								this.timer = null;
+							}
+						}, 1000)
+					}
+				}
+			},
+			validatePhone(){
+				//验证手机号码
+				if(!this.tphone){
+					this.error={
+						tphone:"手机号码不能为空"
+					};
+					return false;
+				}else if(!/^1[3456789]\d{9}$/.test(this.tphone)){
+					this.error={
+						tphone:"请填写正确的手机号码"
+					};
+					return false;
+				}else{
+					this.error={};
+					return true
 				}
 			}
+		},
 
-		}
 	};
 </script>
 
@@ -391,7 +434,7 @@
 		display: inline-block;
 		width: 50px;
 		font-size: 16px;
-		line-height: 50px;
+		line-height: 30px;
 		color: #787d82;
 		text-align: center;
 		font-weight: 700;
@@ -416,7 +459,7 @@
 		float: right;
 		display: inline-block;
 		padding: 5px 0px 0px 170px;
-		line-height: 50px;
+		line-height: 30px;
 		color: #787d82;
 	}
 
@@ -567,6 +610,16 @@
 		cursor: pointer;
 	}
 
+	.othersway {
+		display: inline-block;
+		vertical-align: right;
+		margin-left: 30px;
+		border-right: 1px solid #1a1C1F21;
+		line-height: 24px;
+		font-size: 14px;
+		color: #717a84;
+	}
+
 	.others {
 		padding-top: 5px;
 		display: flex;
@@ -599,8 +652,8 @@
 		transform: scale(1.2);
 		color: #0F4C82;
 	}
-	
-	.code-btn{
+
+	.code-btn {
 		height: 40px;
 		font-size: 16px;
 		border: 0;
@@ -613,8 +666,22 @@
 		font-family: "Microsoft YaHei";
 		cursor: pointer;
 	}
-	
-	>>>.input-div{
+
+	>>>.input-div {
 		display: flex !important;
+	}
+
+	#login {
+		padding-top: 15px;
+	}
+
+	#phone {
+		padding-top: 15px;
+	}
+
+	.invalid-feedback {
+		font-size: 12px;
+		height: 20px;
+		color: #0F4C81;
 	}
 </style>

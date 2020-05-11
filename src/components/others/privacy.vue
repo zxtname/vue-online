@@ -66,4 +66,8 @@
 		margin: auto;
 		min-height: 700px;
 	}
+	
+	p{
+		text-align: left;
+	}
 </style>

@@ -129,10 +129,8 @@
 				this.wordsboxStatus = false
 			},
 			subComment: function() {
-				// !this.userbarsStatus
-				// var objw=JSON.parse(sessionStorage.getItem("token"));
 				const dataB = JSON.parse(sessionStorage.getItem('sta'));
-				const dataC = JSON.parse(sessionStorage.getItem('uname'));
+				const dataC = JSON.parse(sessionStorage.getItem('uid'));
 				const dataD = JSON.parse(sessionStorage.getItem('uimg'));
 				if (!dataB) {
 					this.$message.error('登录后才能评论')

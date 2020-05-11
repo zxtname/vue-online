@@ -59,7 +59,8 @@
 
 				<!-- //占位符 -->
 
-				<login></login>
+				<!-- <login></login> -->
+				<headerRight></headerRight>
 
 			</div>
 		</div>
@@ -70,12 +71,14 @@
 </template>
 
 <script>
-	import login from '@/components/common/login.vue'
+	//import login from '@/components/common/login.vue'
+	import headerRight from '@/components/login/headerRight.vue'
 	
 	export default{
 		// name:'header',
 		components:{
-			login,
+			// login,
+			headerRight,
 		},
 		data() {
 			return {

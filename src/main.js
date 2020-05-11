@@ -6,6 +6,8 @@ import router from "./router/index.js";
 import './plugins/element.js'
 import store from "./store/index.js";
 
+//import store from "./store"//vuex
+
 // 视频播放
 import VueVideoPlayer from 'vue-video-player'
 // require videojs style
