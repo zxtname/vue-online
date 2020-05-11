@@ -18,3 +18,22 @@ export const GetCourseDetailById=(courseId)=>
 		params:{courseId:courseId}
 	});
 }
+//根据Id获取视频的URL
+export const GetVideoById=(Id)=>
+{
+	if(Id==1){
+		return request({
+			url: 'video/video1.json',
+			method: 'get',
+			params:{videoId:Id}
+		});
+	}
+	else{
+		return request({
+			url: 'video/video2.json',
+			method: 'get',
+			params:{videoId:Id}
+		});
+	}
+	
+}

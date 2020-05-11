@@ -3,40 +3,137 @@
   "msg": "ok",
   "data": {
     "course": {
-      "id": 1,
-      "courseName": "针灸学",
-      "imgUrl": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586582030052&di=bfe492c46bb7222daca868a8cb23694a&imgtype=0&src=http%3A%2F%2Fwww.kfzimg.com%2FW02%2F50%2F1b%2F501b1245457a855f3bd385fc9ad318b6_b.jpg",
-      "price": 500,
-      "remark": "<p>\r\n\t\t\t\t\t关于此课程\r\n\t\t\t\t\t<br />\r\n\r\n\t\t\t\t\t中山大学《医学统计学》已有40年历史，2008年获评国家级精品课程，2010年获评国家级双语示范课程，2011年获评广东省网络教育类精品课程，2012年获评国家精品资源共享课，2013年获评教育部来华留学生英语授课品牌课程。中山大学也是卫生部规划教材《卫生统计学》第五、六、七版的主编单位和中国高等教育学会医学教育专业委员会规划教材《医学统计学》的主编单位。针对不同医学专业的特点，中山大学《医学统计学》的教学时数为50-100学时。目前，包括成人教育及远程教育在内，课程每学年的授课对象超过3000人。\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t《医学统计学（高级篇）》课程内容共8章，每章的课时安排如下：\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t（1）观察性研究的设计与分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（2）实验研究的设计和分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（3）临床试验的设计与分析，课程计划时长90分钟，包括6个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（4）多重线性回归与相关，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（5）Logistic回归分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。 （6）寿命表，课程计划时长60分钟，包括4个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t\t（7）生存分析，课程计划时长75分钟，包括4个微视频，每个微视频计划时长15~20分钟。 （8）Meta分析，课程计划时长75分钟，包括5个微视频，每个微视频计划时长15分钟。\r\n\t\t\t\t</p>",
-      "creatTime": "2020-04-04 10:28:54",
+      "id": 2,
+      "courseName": "压迫学",
+      "imgUrl": "http://img.pmphmooc.com/data/png/1372/2017/10/30/1e3a76f6-4104-4a0d-adc9-eaee67f3cfae.png",
+      "price": 124,
+      "remark": "hahah ",
+      "creatTime": "2020-04-16 16:27:22",
       "courseAudit": "admin,",
       "stopFlag": 0,
-      "imgName": "c7d85303-2785-4848-9047-41fdecb3a7f8.png",
+      "imgName": "d3be862d-35cb-4102-a0e6-24248f32baee.jpg",
       "isFree": 0,
-      "courseCode": "Z002",
+      "courseCode": null,
       "isMadical": 1,
-      "classfyName": "中医中药"
+      "classfyName": "医学检验"
     },
+    "chapterlist": [
+      {
+        "chapterHeader": {
+          "id": 1,
+          "courseId": 1,
+          "introduce": "第一章  观察性研究的设计与分析（共5节，计划视频长度75分钟）",
+          "parentId": 0,
+          "videoId": 0
+        },
+        "chapterContent": [
+          {
+            "id": 2,
+            "courseId": 1,
+            "introduce": "第一节  观察性研究概述",
+            "parentId": 1,
+            "videoId": 1
+          },
+          {
+            "id": 3,
+            "courseId": 1,
+            "introduce": "第二节  横断面研究设计与分析",
+            "parentId": 1,
+            "videoId": 2
+          },
+          {
+            "id": 4,
+            "courseId": 1,
+            "introduce": "第三节  病例-对照研究设计与分析",
+            "parentId": 1,
+            "videoId": 7
+          },
+          {
+            "id": 5,
+            "courseId": 1,
+            "introduce": "第四节  队列研究设计与分析",
+            "parentId": 1,
+            "videoId": 8
+          },
+          {
+            "id": 6,
+            "courseId": 1,
+            "introduce": "第五节  观察性研究报告规范（STROBE）",
+            "parentId": 1,
+            "videoId": 9
+          }
+        ]
+      },
+      {
+        "chapterHeader": {
+          "id": 7,
+          "courseId": 1,
+          "introduce": "第二章  实验研究的设计与分析（共5节，计划视频长度75分钟）",
+          "parentId": 0,
+          "videoId": 0
+        },
+        "chapterContent": [
+          {
+            "id": 8,
+            "courseId": 1,
+            "introduce": "第一节  实验研究设计的三要素",
+            "parentId": 7,
+            "videoId": 10
+          },
+          {
+            "id": 9,
+            "courseId": 1,
+            "introduce": "第二节  实验研究设计的四原则",
+            "parentId": 7,
+            "videoId": 11
+          },
+          {
+            "id": 10,
+            "courseId": 1,
+            "introduce": "第三节  病例-对照研究设计与分析",
+            "parentId": 7,
+            "videoId": 12
+          },
+          {
+            "id": 11,
+            "courseId": 1,
+            "introduce": "第四节  随机区组设计、析因设计及对应的统计分析方法",
+            "parentId": 7,
+            "videoId": 13
+          }
+        ]
+      }
+    ],
     "videos": [
       {
-        "id": 1,
-        "vName": "针灸学",
-        "videoUrl": "http://localhost:8888/video/eb830245-ef6a-4240-b3d8-64481f0108bf.mp4",
-        "crouserId": 1,
+        "id": 2,
+        "vName": "针灸用法",
+        "videoUrl": "http://v.pmphmooc.com/data/mp4/1537/2015/11/19/c7ad3eb0-3963-4b0e-bda3-e57eb5e78335.mp4",
+        "crouserId": 2,
         "videoName": "2.MP4",
         "stopFlag": 0,
-        "createTime": "2020-04-04 10:20:43",
+        "createTime": "2020-04-09 10:21:00",
         "videoType": "MP4"
       },
       {
-        "id": 7,
-        "vName": "我叫王宝强",
-        "videoUrl": "http://localhost:8888/video/a80ba08e-71ab-416b-8ef0-e75102b62813.mp4",
-        "crouserId": 1,
+        "id": 8,
+        "vName": "绯鞠",
+        "videoUrl": "http://v.pmphmooc.com/data/mp4/1372/2016/05/05/d1b63d1d-a6bd-48e4-8e29-097d4b547bc0.mp4",
+        "crouserId": 2,
         "videoName": null,
         "stopFlag": 0,
-        "createTime": "2020-04-26 08:04:29",
-        "videoType": "Mp4"
+        "createTime": "2020-04-01 08:04:33",
+        "videoType": "mp4"
+      },
+      {
+        "id": 13,
+        "vName": "破坏",
+        "videoUrl": "http://v.pmphmooc.com/data/mp4/1372/2016/05/26/0cfc0486-618d-419c-8cbc-2c1f265d4c1b.mp4",
+        "crouserId": 2,
+        "videoName": "8a760a80-343f-490c-8001-3c4fa5017238.mp4",
+        "stopFlag": 0,
+        "createTime": "2020-04-25 23:43:58",
+        "videoType": "mp4"
       }
     ]
   }
