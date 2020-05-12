@@ -59,7 +59,9 @@ export default {
 			],
 			currentUser: {
 				userimg: '',
-				userid: ''
+				userid: '',
+				userphone:'',
+				password:''
 			},
 			wologinStatus: this.loginStatus
 		};
@@ -104,12 +106,15 @@ export default {
 								this.userbarsStatus = true;
 								this.currentUser.userimg = 'img/' + this.users[i].userimg;
 								this.currentUser.userid = this.users[i].userid;
+								this.currentUser.userphone=this.phone;
+								this.currentUser.password=this.password;
 								this.lrBtnStatus = false;
 
 								sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
-								sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
 								sessionStorage.setItem('bsta', JSON.stringify(this.lrBtnStatus));
-								sessionStorage.setItem('uid', JSON.stringify(this.currentUser.userid));
+								
+								let str1 = JSON.stringify(this.currentUser);
+								sessionStorage.setItem("token", str1)
 
 								this.reload();
 

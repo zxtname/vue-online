@@ -107,8 +107,10 @@
 					time: ''
 				},
 				currentUser: {
-					username: '',
-					userimg: ''
+					userimg: '',
+					userid: '',
+					userphone:'',
+					password:''
 				},
 				wordsboxStatus: false,
 			}
@@ -130,8 +132,10 @@
 			},
 			subComment: function() {
 				const dataB = JSON.parse(sessionStorage.getItem('sta'));
-				const dataC = JSON.parse(sessionStorage.getItem('uid'));
-				const dataD = JSON.parse(sessionStorage.getItem('uimg'));
+				// const dataC = JSON.parse(sessionStorage.getItem('uid'));
+				// const dataD = JSON.parse(sessionStorage.getItem('uimg'));
+				var objw=JSON.parse(sessionStorage.getItem("token"));
+				this.currentUser=objw;
 				if (!dataB) {
 					this.$message.error('登录后才能评论')
 				} else {
@@ -139,8 +143,8 @@
 						this.$message.warning('请先评论内容')
 					} else {
 						var obj = {};
-						obj.username = dataC;
-						obj.userimg = dataD;
+						obj.username = this.currentUser.userid;
+						obj.userimg = this.currentUser.userimg;
 						obj.words = $('.el-textarea textarea').val();
 						obj.time = new Date().format('yyyy-MM-dd hh:mm:ss');
 

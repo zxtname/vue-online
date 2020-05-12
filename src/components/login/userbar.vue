@@ -23,36 +23,34 @@
 				currentUser: {
 					userimg: '',
 					userid:'',
+					userphone:'',
+					password:''
 				},
 			}
 		},
 		created() {
 			const dataA = JSON.parse(sessionStorage.getItem('sta'));
-			const dataB = JSON.parse(sessionStorage.getItem('uid'));
-			const dataC = JSON.parse(sessionStorage.getItem('uimg'));
+			var obj=JSON.parse(sessionStorage.getItem("token"));
 			if (dataA == undefined) {
 				this.userbarsStatus = false
 			} else {
 				this.userbarsStatus = dataA
-				this.currentUser.userimg = dataC
-				this.currentUser.userid = dataB
+				this.currentUser=obj
 			}
 		},
 		methods:{
 			loginout:function(){
-				this.currentUser.userimg = ''
-				this.currentUser.userid=''
+				this.currentUser=''
+				
 				this.$message.info('退出成功！')
 				this.userbarsStatus=false
 				this.lrBtnStatus = true;
 				
-				// this.currentUser.userbarsStaus=this.userbarsStaus
-				// let str1=JSON.stringify(this.currentUser);
-				// sessionStorage.setItem("token",str1)
 				sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
-				sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
 				sessionStorage.setItem('bsta', JSON.stringify(this.lrBtnStatus));
-				sessionStorage.setItem('uid', JSON.stringify(this.currentUser.userid));
+				
+				let str1 = JSON.stringify(this.currentUser);
+				sessionStorage.setItem("token", str1)
 				
 				this.reload();
 				
