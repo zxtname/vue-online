@@ -1,0 +1,9 @@
+{
+  "code": 0,
+  "message": "认证成功",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwiSWQiOiIyIiwiVXNlckNvZGUiOiIwMDAwMDAwMiIsIkRlcHRDb2RlIjoiRDAwMDAwMiIsIm5iZiI6MTU4OTI2NjM2NSwiZXhwIjoxNTg5MjcyMzY1LCJpYXQiOjE1ODkyNjYzNjUsImlzcyI6IlpYWUwuV2ViLkFwaSJ9.y22ygpMDhex5ajohBEbYOIO72r4hLdjGxbYUJPYtutA",
+    "userId": 2,
+    "userImg": "https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png"
+  }
+}
