@@ -3,7 +3,7 @@
 		<!-- 视频播放 -->
 		<div class="videocontainer">
 			<div class="lessonvideo"><videoplay :source="videoUrl"></videoplay></div>
-			<!-- {{videoUrl}} -->
+			<!-- {{ videoUrl }} -->
 		</div>
 		<!-- 章节目录开始 -->
 		<div class="chapters-list" v-for="items in chapterList" :key="items.id">
@@ -45,8 +45,8 @@ export default {
 			chapterList: [],
 			dataList: [],
 			videoUrl: {
-				type: 'video/mp4',
-				src: 'http://v.pmphmooc.com/data/mp4/1372/2017/12/22/99199313-aec4-4509-a530-bc77597264d0.mp4' //你的m3u8地址（必填）
+				// type: 'video/mp4',				
+				src: 'https://dpv.videocc.net/7a85310c76/d/7a85310c76ec593cee760fdbc5ee89fd_2.mp4?pid=1589246082054X1411402' //你的m3u8地址（必填）
 			}
 			// dialogVisible: false,
 		};

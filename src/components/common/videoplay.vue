@@ -16,7 +16,7 @@ export default {
 			type: Object,
 			default: function() {
 				return {
-						type: 'video/mp4',
+						// type: 'video/mp4',
 						src: 'http://localhost:80/testvideo 03.mp4' //你的m3u8地址（必填）
 					}
 				;
