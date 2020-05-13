@@ -2,13 +2,13 @@
 	<div class="s-search">
 		<div class="search-header">
 			<div class="search-form">
-				<el-autocomplete popper-class="my-autocomplete" v-model="state" :fetch-suggestions="querySearch" placeholder="请输入想搜索的内容"
+				<!-- <el-autocomplete popper-class="my-autocomplete" v-model="state" :fetch-suggestions="querySearch" placeholder="请输入想搜索的内容"
 				 @select="handleSelect">
 					<template slot-scope="{ item }">
 						<div class="name">{{ item.value }}</div>
 					</template>
-				</el-autocomplete>
-				<!-- <input type="text" class="search-form-ipt" placeholder="请输入想搜索的内容" /> -->
+				</el-autocomplete> -->
+				<input type="text" class="search-form-ipt" placeholder="请输入想搜索的内容" />
 				<button class="search-form-btn">搜索</button>
 			</div>
 		</div>
@@ -40,8 +40,6 @@
 		},
 		data() {
 			return {
-				courses: [],
-				state: '',
 				totalPage: 1,
 				coursesContent: [],
 				query: {
@@ -55,42 +53,6 @@
 			this.GetData();
 		},
 		methods:{
-			querySearch(queryString, cb) {
-				var courses = this.courses;
-				var results = queryString ? courses.filter(this.createFilter(queryString)) : courses;
-				// 调用 callback 返回建议列表的数据
-				cb(results);
-			},
-			createFilter(queryString) {
-				return (courses) => {
-					return (courses.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
-				};
-			},
-			loadAll() {
-				// 热门课程
-				return [{
-						"value": "外科护理学"
-					},
-					{
-						"value": "医学免疫学"
-					},
-					{
-						"value": "病理学"
-					},
-					{
-						"value": "分析医学"
-					},
-					{
-						"value": "口腔学"
-					},
-				]
-			},
-			handleSelect(item) {
-				console.log(item);
-			},
-			handleIconClick(ev) {
-				console.log(ev);
-			},
 			changePage(page) {
 				this.query.pageNum = page;
 				// this.routerTo();
@@ -107,54 +69,10 @@
 				// console.log(res2)
 			},
 		},
-		mounted() {
-			this.courses = this.loadAll();
-		},
 	}
 </script>
 
 <style scoped>
-	.my-autocomplete {
-		li {
-			line-height: normal;
-			padding: 7px;
-	
-			.name {
-				text-overflow: ellipsis;
-				overflow: hidden;
-			}
-	
-			.addr {
-				font-size: 12px;
-				color: #b4b4b4;
-			}
-	
-			.highlighted .addr {
-				color: #ddd;
-			}
-		}
-	}
-	
-	>>>.el-input__inner:focus {
-		border-color: #0f4c81 !important;
-		outline: 0;
-	}
-	
-	>>>.el-input__inner{
-		height: 48px;
-	}
-	
-	.el-icon-search {
-		font-weight: bold;
-		font-size: 16px;
-		color: #000000;
-		cursor: pointer;
-	}
-	
-	>>>.el-input{
-		width: 736px;
-		height: 48px;
-	}
 	
 	.s-search {
 		min-height: 600px;
