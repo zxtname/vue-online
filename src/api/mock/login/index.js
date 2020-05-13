@@ -12,3 +12,11 @@ export const Register = (data) => {
 		method: 'get'
 	});
 }
+export const GetVerifyCode = (phoneNumber) => {	
+	return request({
+		url: 'home/Login.json',
+		method: 'get',
+		// params:{phoneNumber:phoneNumber}
+	});
+}
+

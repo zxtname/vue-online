@@ -16,3 +16,11 @@ export const Register = (data) => {
 		data
 	});
 }
+export const GetVerifyCode = (phoneNumber) => {	
+	// console.log(query)
+	return request({
+		url: 'Student/GetVerifyCode',
+		method: 'get',
+		params:{phoneNumber:phoneNumber}
+	});
+}

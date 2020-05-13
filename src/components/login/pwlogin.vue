@@ -90,9 +90,12 @@ export default {
 						this.currentUser.userid = res.data.userId;
 						this.lrBtnStatus = false;
 						sessionStorage.setItem('sta', JSON.stringify(this.userbarsStatus));
-						sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
+						// sessionStorage.setItem('uimg', JSON.stringify(this.currentUser.userimg));
 						sessionStorage.setItem('bsta', JSON.stringify(this.lrBtnStatus));
-						sessionStorage.setItem('uid', JSON.stringify(this.currentUser.userid));
+						// sessionStorage.setItem('uid', JSON.stringify(this.currentUser.userid));
+						let str1 = JSON.stringify(this.currentUser);
+						sessionStorage.setItem("token", str1)
+						
 						this.reload();
 					} else {
 						// 下面的是静态的方法;
