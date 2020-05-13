@@ -40,18 +40,8 @@
 				</div>
 
 				<div class="searchInput">
-					<el-autocomplete popper-class="my-autocomplete" v-model="state" :fetch-suggestions="querySearch" placeholder="搜索 课程"
-					 @select="handleSelect">
-						 <i class="el-icon-search el-input__icon" slot="suffix" @click="handleIconClick">
-						 </i>
-						
-						<template slot-scope="{ item }">
-							<div class="name">{{ item.value }}</div>
-							<!-- <span class="addr">{{ item.address }}</span> -->
-						</template>
-					</el-autocomplete>
-					<!-- <input type="text" name="search" placeholder="搜索 课程" class="searchInputItem">
-					<i class="fas fa-search"></i> -->
+					<input type="text" name="search" placeholder="搜索 课程" class="searchInputItem">
+					<i class="fas fa-search" @click="searchclick()"></i>
 				</div>
 
 				<div style="flex-grow: 2">
@@ -87,49 +77,13 @@
 			};
 		},
 		methods:{
-			querySearch(queryString, cb) {
-				var courses = this.courses;
-				var results = queryString ? courses.filter(this.createFilter(queryString)) : courses;
-				// 调用 callback 返回建议列表的数据
-				cb(results);
-			},
-			createFilter(queryString) {
-				return (courses) => {
-					return (courses.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
-				};
-			},
-			loadAll() {
-				// 热门课程
-				return [{
-						"value": "外科护理学"
-					},
-					{
-						"value": "医学免疫学"
-					},
-					{
-						"value": "病理学"
-					},
-					{
-						"value": "分析医学"
-					},
-					{
-						"value": "口腔学"
-					},
-				]
-			},
-			handleSelect(item) {
-				console.log(item);
-			},
-			handleIconClick(ev) {
-				console.log(ev);
+			searchclick(){
 				this.$router.push({
 					path:'/search',
 				})
 			}
-		},
-		mounted() {
-			this.courses = this.loadAll();
-		},
+		}
+		
 	}
 </script>
 
@@ -259,45 +213,42 @@
 	}
 
 	.searchInputItem {
-		display: block;
-		width: auto;
-		border: 0;
-		border-bottom: 1px solid rgb(128, 125, 125);
-		/* border-radius: 5px; */
-		vertical-align: middle;
-		margin-right: 0.5rem;
-		height: calc(1.5em + 0.5rem + 2px);
-		padding: 0.25rem 1.4375rem;
-		font-size: 0.875rem;
-		line-height: 1.5;
-		background-color: #FAF4FE;
-		/* color: #495057;
-		background-color: #fff; */
-		background-clip: padding-box;
-		/* border: 1px solid #ced4da; */
-		font-weight: 400;
-		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-	}
-
-	/* .searchInputItem:focus {
-		border-color: #0F4C81;
-		outline: 0;
-	}
-
-	.searchInput {
-		position: relative;
-		display: flex;
-		align-items: center;
-	}
-
-	.fa-search {
-		position: absolute;
-		right: 12px;
-		color: #333;
-		padding: 0.25rem 0.5rem;
-		font-size: 0.875rem;
-		line-height: 1.5;
-		border-radius: 0.2rem;
-		cursor: pointer;
-	} */
+			display: block;
+			width: auto;
+			border: 0;
+			border-bottom: 1px solid rgb(128, 125, 125);
+			/* border-radius: 5px; */
+			vertical-align: middle;
+			margin-right: 0.5rem;
+			height: calc(1.5em + 0.5rem + 2px);
+			padding: 0.25rem 1.4375rem;
+			font-size: 0.875rem;
+			line-height: 1.5;
+			background-color: #FAF4FE;
+			background-clip: padding-box;
+			font-weight: 400;
+			transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		}
+	
+		.searchInputItem:focus {
+			border-color: #0F4C81;
+			outline: 0;
+		}
+	
+		.searchInput {
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+	
+		.fa-search {
+			position: absolute;
+			right: 12px;
+			color: #333;
+			padding: 0.25rem 0.5rem;
+			font-size: 0.875rem;
+			line-height: 1.5;
+			border-radius: 0.2rem;
+			cursor: pointer;
+		}
 </style>

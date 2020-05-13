@@ -15,18 +15,8 @@
 			<div class="med-search">
 				<div class="mednavtext">全部</div>
 
-				<div class="searchInput">
-					<el-autocomplete popper-class="my-autocomplete" v-model="state" :fetch-suggestions="querySearch"
-					 placeholder="搜索 课程" @select="handleSelect" :value="text" @input="$emit('change', $event.target.value)"
-					 @keyup.enter="search">
-						<i class="el-icon-search el-input__icon" slot="suffix" @click="handleIconClick">
-						</i>
-						<template slot-scope="{ item }">
-							<div class="name">{{ item.value }}</div>
-							<!-- <span class="addr">{{ item.address }}</span> -->
-						</template>
-					</el-autocomplete>
-					<!-- <input
+				<!-- <div class="searchInput">
+					<input
 						type="text"
 						name="search"
 						placeholder="搜索课程名/教师名"
@@ -35,7 +25,11 @@
 						@keyup.enter="search"
 						class="searchInputItem"
 					/>
-					<i class="fas fa-search" @click="search"></i> -->
+					<i class="fas fa-search" @click="search"></i>
+				</div> -->
+				<div class="searchInput">
+					<input type="text" name="search" placeholder="搜索课程名/教师名" class="searchInputItem">
+					<i class="fas fa-search"></i>
 				</div>
 			</div>
 
@@ -51,12 +45,6 @@
 	// import mdcards from '@/components/common/mdcards.vue'
 	import cards from '@/components/common/cards.vue';
 	export default {
-		data() {
-			return {
-				courses: [],
-				state: ''
-			};
-		},
 		components: {
 			// mdcards,
 			cards
@@ -80,10 +68,6 @@
 			}
 		},
 		created() {},
-		mounted() {
-			this.courses = this.loadAll();
-			// console.log(this.classfyList)
-		},
 		methods: {
 			search() {
 				this.$emit('search');
@@ -91,42 +75,6 @@
 			classfyClick(val) {
 				this.$emit('classfyClick', val);
 			},
-			querySearch(queryString, cb) {
-				var courses = this.courses;
-				var results = queryString ? courses.filter(this.createFilter(queryString)) : courses;
-				// 调用 callback 返回建议列表的数据
-				cb(results);
-			},
-			createFilter(queryString) {
-				return (courses) => {
-					return (courses.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
-				};
-			},
-			loadAll() {
-				// 热门课程
-				return [{
-						"value": "外科护理学"
-					},
-					{
-						"value": "医学免疫学"
-					},
-					{
-						"value": "病理学"
-					},
-					{
-						"value": "分析医学"
-					},
-					{
-						"value": "口腔学"
-					},
-				]
-			},
-			handleSelect(item) {
-				console.log(item);
-			},
-			handleIconClick(ev) {
-				console.log(ev);
-			}
 		},
 
 	}
