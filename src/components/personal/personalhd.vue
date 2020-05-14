@@ -3,11 +3,10 @@
 		<div class="pcenter">
 			<div class="left">
 				
-				<div class="useravatar"><img width="100%" height="100%" img :src="userInfo.headUrl" /></div>
-				
+				<div class="useravatar"><img width="100%" height="100%" img :src="userInfo.headUrl" /></div>				
 				<div class="userinfo">
 					<p class="pname">{{userInfo.realName}}</p>
-					<p class="pid">ID:{{userInfo.id}}</p>	
+					<p class="pid">账号:{{userInfo.userName}}</p>	
 														<!-- {{uploadUrl}} -->
 				</div>
 			</div>
