@@ -1,4 +1,5 @@
 import request from '@/api/base.js'
+const token=sessionStorage.getItem("auth");
 //登陆
 export const Login = (data) => {	
 	// console.log(query)
@@ -42,3 +43,26 @@ export const GetLoginVerifyCode = (phoneNumber) => {
 		params:{phoneNumber:phoneNumber}
 	});
 }
+export const GetUserInfo = () => {	
+	if(token==null){
+		console.log("请重新登陆，token无效")
+	}
+	return request({
+		url: 'Student/GetUserInfo',
+		headers: {
+			Authorization: "Bearer " + token
+		},
+		method: 'get',
+	});
+}
+export const EditInfo = (data) => {		
+	return request({
+		url: 'Student/EditInfo',
+		headers: {
+			Authorization: "Bearer " + token
+		},
+		method: 'post',
+		data
+	});
+}
+

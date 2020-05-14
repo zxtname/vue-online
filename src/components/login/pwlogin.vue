@@ -95,7 +95,7 @@ export default {
 						// sessionStorage.setItem('uid', JSON.stringify(this.currentUser.userid));
 						let str1 = JSON.stringify(this.currentUser);
 						sessionStorage.setItem("token", str1)
-						
+						sessionStorage.setItem("auth",res.data.token)						
 						this.reload();
 					} else {
 						// 下面的是静态的方法;
