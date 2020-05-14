@@ -13,7 +13,7 @@
 
 		<div class="medcourselist">
 			<div class="med-search">
-				<div class="mednavtext">全部</div>
+				<!-- <div class="mednavtext">全部</div> -->
 
 				<div class="searchInput">
 					<input
@@ -137,6 +137,7 @@
 
 	.medcourselist {
 		padding-left: 50px;
+		width: 2000px;
 	}
 
 	.mednavtext {
@@ -180,7 +181,7 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		padding-left: 450px;
+		/* padding-left: 450px; */
 		padding-top: 10px;
 	}
 

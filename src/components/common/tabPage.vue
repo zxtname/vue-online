@@ -70,6 +70,17 @@ export default {
         }
     },
     methods: {
+		backtop() {
+			var timer = setInterval(function() {
+				let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+				let ispeed = Math.floor(-osTop / 5);
+				document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+				this.isTop = true;
+				if (osTop === 0) {
+					clearInterval(timer);
+				}
+			}, 5)
+		},
         changeCurrentPage(page) {
             if (page <= 0 || page > this.totalPage || page==='...') {
                 return
@@ -77,6 +88,7 @@ export default {
 
             this.currentPage = page
             this.$emit('changePage', this.currentPage)
+			this.backtop()
         }
     }
 }

@@ -30,9 +30,9 @@
 
 <script>
 	export default {
-		mounted() {
-			window.addEventListener("scroll", this.showbtn, true);
-		},
+		// mounted() {
+		// 	window.addEventListener("scroll", this.showbtn, true);
+		// },
 		name: 'sidebar',
 		data() {
 			return {
