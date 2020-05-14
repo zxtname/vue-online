@@ -51,12 +51,7 @@
 	    }
 	  },
 	  created () {
-	    // // 初始化选项卡数据
-	    // this.tabList = [
-	    //   { title: '慕课小课', type: 0 },
-	    //   { title: '最近学习', type: 1 },
-	    //   { title: '我的收藏', type: 2 }
-	    // ]
+	    
 	  },
 	  methods: {
 	    search() {
@@ -67,10 +62,7 @@
 	    }
 	  },
 	  computed: {
-	    // filterList () {
-	    //   let currTab = this.tabList[this.currentTabIndex]
-	    //   return this.list.filter(item => item.type === currTab.type)
-	    // }
+	    
 	  },
 	  components:{
 		  cards
