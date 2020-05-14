@@ -1,15 +1,9 @@
 <template>
 	<div class="s-search">
 		<div class="search-header">
-			<div class="search-form">
-				<!-- <el-autocomplete popper-class="my-autocomplete" v-model="state" :fetch-suggestions="querySearch" placeholder="请输入想搜索的内容"
-				 @select="handleSelect">
-					<template slot-scope="{ item }">
-						<div class="name">{{ item.value }}</div>
-					</template>
-				</el-autocomplete> -->
-				<input type="text" class="search-form-ipt" placeholder="请输入想搜索的内容" />
-				<button class="search-form-btn">搜索</button>
+			<div class="search-form">				
+				<input type="text" class="search-form-ipt" placeholder="请输入想搜索的内容" v-model="query.courseName" />
+				<button class="search-form-btn" @click="search">搜索</button>
 			</div>
 		</div>
 
@@ -18,10 +12,10 @@
 				<div class="search-all">
 					<a style="margin-left: 50px;">
 						全站结果
-						<span>(46)</span>
+						<span>({{count}})</span>
 					</a>
 				</div>
-				<searchcourses></searchcourses>
+				<searchcourses :dataList="coursesContent"></searchcourses>
 				<tabPage :totalPage="totalPage" @changePage="changePage"></tabPage>
 			</div>
 		</div>
@@ -40,6 +34,7 @@
 		},
 		data() {
 			return {
+				count:10,
 				totalPage: 1,
 				coursesContent: [],
 				query: {
@@ -53,6 +48,9 @@
 			this.GetData();
 		},
 		methods:{
+			search(){
+				this.GetData();
+			},
 			changePage(page) {
 				this.query.pageNum = page;
 				// this.routerTo();
@@ -66,6 +64,7 @@
 				}
 				this.coursesContent = res2.data;
 				this.totalPage = res2.totalPage;
+				this.count=res2.count;
 				// console.log(res2)
 			},
 		},

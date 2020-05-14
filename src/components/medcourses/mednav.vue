@@ -13,9 +13,9 @@
 
 		<div class="medcourselist">
 			<div class="med-search">
-				<div class="mednavtext">全部</div>
+				<!-- <div class="mednavtext">全部</div> -->
 
-				<!-- <div class="searchInput">
+				<div class="searchInput">
 					<input
 						type="text"
 						name="search"
@@ -26,11 +26,11 @@
 						class="searchInputItem"
 					/>
 					<i class="fas fa-search" @click="search"></i>
-				</div> -->
-				<div class="searchInput">
-					<input type="text" name="search" placeholder="搜索课程名/教师名" class="searchInputItem">
-					<i class="fas fa-search"></i>
 				</div>
+				<!-- <div class="searchInput">
+					<input type="text" name="search" placeholder="搜索课程名/教师名" class="searchInputItem">
+					<i class="fas fa-search" @click="search"></i>
+				</div> -->
 			</div>
 
 			<div class="medcards">
@@ -137,6 +137,7 @@
 
 	.medcourselist {
 		padding-left: 50px;
+		width: 2000px;
 	}
 
 	.mednavtext {
@@ -180,7 +181,7 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		padding-left: 450px;
+		/* padding-left: 450px; */
 		padding-top: 10px;
 	}
 
