@@ -60,4 +60,13 @@
 		margin-left: 100px;
 		color: #ECEEEF;
 	}
+	.intro {
+		float: right;
+		width: 700px;
+		font-size: 14px;
+		text-align: left;
+		color: #eceeef;
+		margin-top: 70px;
+		margin-right: 100px;
+	}
 </style>

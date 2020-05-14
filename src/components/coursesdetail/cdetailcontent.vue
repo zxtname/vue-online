@@ -17,7 +17,7 @@
 		</div>
 		<!-- 内容部分 -->
 		<div class="detail-information m-center cw">
-		  <div class="introduction">
+		  <div class="ccontent">
 		    <component :is="componentName" :list="content" />
 			<!-- <introduction></introduction> -->
 		  </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-	import introduction from '@/components/coursesdetail/introduction.vue'
+	import cintro from '@/components/coursesdetail/cintro.vue'
 	import chapters from '@/components/coursesdetail/chapters.vue'
 	import teachersinfo from '@/components/coursesdetail/teachersinfo.vue'
 	export default {
@@ -49,7 +49,7 @@
 	  created () {
 	    // 初始化导航数据
 	    this.navList = [
-	      { title: '课程详情', number: 0, componentName: 'introduction', key: "introduction" },
+	      { title: '课程详情', number: 0, componentName: 'cintro', key: "cintro" },
 	      { title: '章节目录', number: 0, componentName: 'chapters', key: 'chapters' },
 	      { title: '教师团队', number: 0, componentName: 'teachersinfo', key: 'teachersinfo' },
 	      { title: '用户评价', number: 0, componentName: 'comment', key: 'comment' },
@@ -69,7 +69,8 @@
 	    
 	  },
 	  components: {
-	    introduction,
+		cintro,
+	    // introduction,
 		chapters,
 		teachersinfo,
 	    // Introduction: () => import('./introduction.vue'),
