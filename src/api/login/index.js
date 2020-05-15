@@ -65,4 +65,16 @@ export const EditInfo = (data) => {
 		data
 	});
 }
+export const GetUserCourse = () => {	
+	if(token==null){
+		console.log("请重新登陆，token无效")
+	}
+	return request({
+		url: 'Student/GetUserCourse',
+		headers: {
+			Authorization: "Bearer " + token
+		},
+		method: 'get',
+	});
+}
 

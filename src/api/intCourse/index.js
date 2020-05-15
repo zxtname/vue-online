@@ -1,4 +1,5 @@
-import request from '@/api/base.js'
+import request from '@/api/base.js';
+const token=sessionStorage.getItem("auth");
 
 //获取首页的全部信息
 export const GetCourseInfo = (query) => {
@@ -32,6 +33,30 @@ export const GetVideoById=(Id)=>
 		url: 'Teacher/GetVideoById',
 		method: 'get',
 		params:{videoId:Id}
+	});
+}
+//判断是否是我的课程
+export const IsMyCourse=(Id)=>
+{
+	return request({
+		url: 'Student/IsMyCourse',
+		headers: {
+			Authorization: "Bearer " + token
+		},
+		method: 'get',
+		params:{courseId:Id}
+	});
+}
+//购买课程
+export const BuyCourse = (data) => {	
+	// console.log(query)
+	return request({
+		url: 'Student/BuyCourse',
+		headers: {
+			Authorization: "Bearer " + token
+		},
+		method: 'post',
+		data
 	});
 }
 

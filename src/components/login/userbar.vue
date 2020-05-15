@@ -51,6 +51,7 @@
 				
 				let str1 = JSON.stringify(this.currentUser);
 				sessionStorage.setItem("token", str1)
+				sessionStorage.clear();
 				
 				this.reload();
 				

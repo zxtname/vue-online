@@ -1,8 +1,10 @@
 <template>
-	<div class="coursesdetailhd" v-if="dataList.course!=undefined">
+	<div class="coursesdetailhd" v-if="dataList.course != undefined">
 		<!-- 左上，分类小索引 -->
-		<div class="sort w">			
-			<span><h3>首页 / {{dataList.course.classfyName}} / {{dataList.course.courseName}} 高级</h3></span>
+		<div class="sort w">
+			<span>
+				<h3>首页 / {{ dataList.course.classfyName }} / {{ dataList.course.courseName }} 高级</h3>
+			</span>
 		</div>
 		<!-- 索引完成 -->
 		<!-- 中间 课程大标题 -->
@@ -14,7 +16,7 @@
 		<!-- banner下方，课程信息 -->
 		<div class="infobox w">
 			<div class="info1 ">
-				<h3>￥{{dataList.course.price}}</h3>
+				<h3>￥{{ dataList.course.price }}</h3>
 				<br />
 			</div>
 			<div class="info2">
@@ -22,7 +24,7 @@
 					<li>
 						<p class="text">
 							<b>开课时间</b>
-							{{dataList.course.creatTime|dataFormat}}
+							{{ dataList.course.creatTime | dataFormat }}
 						</p>
 					</li>
 					<li><p>|</p></li>
@@ -52,16 +54,17 @@
 					<li><p>|</p></li>
 				</ul>
 			</div>
-			<div class="buy" @click="paidornot()">
-				<router-link tag="a" :to="{ name: 'pay' }" class="payA" >
-					<button :btnText="btnText">立即购买</button>
-				</router-link>
+			<div class="buy" @click="buyCourse" v-if="isMyCourse == false">
+				<!-- <router-link tag="a" :to="{ name: 'pay' }" class="payA"><button :btnText="btnText">立即购买</button></router-link> -->
+				<button style="cursor:pointer">立即购买</button>
 			</div>
+			<div class="buy" v-else><button style="color:#C0C4CC;">已参加课程</button></div>
 		</div>
 	</div>
 </template>
 
 <script>
+import { IsMyCourse, BuyCourse } from 'api/intCourse';
 export default {
 	props: {
 		dataList: {
@@ -71,26 +74,43 @@ export default {
 			}
 		}
 	},
-	data(){
-		cond = false;
+	data() {
+		return {
+			isMyCourse: false
+		};
 	},
-	methods:{
-		
-			
-			// paidornot(){
-			// 	var pay= this.cond;
-			// 	if (pay == false) {
-					
-			// 		this.btnText = '立即购买';
-			// 		this.disabled = true;
-			// 	} else {
-					
-			// 		this.btnText = '已购买';
-			// 		this.disabled = false;
-					
-			// 	}
-			// },
-		
+	created() {
+		let res = this.$route.query.id;
+		var token = sessionStorage.getItem('auth');
+		if (res != null && token != undefined && token != '') {
+			this.initInfo(res);
+		}
+	},
+	methods: {
+		async initInfo(courseId) {
+			var { data: res } = await IsMyCourse(courseId);
+			if (res.code == 1) this.isMyCourse = true;
+		},
+		async buyCourse() {
+			let res = this.$route.query.id;
+			var token = sessionStorage.getItem('auth');
+			if (res == null || token == undefined || token == '') {
+				this.$message.warning('请先登陆');
+				return;
+			}
+			var sure =await this.$confirm('确定要购买吗？', '提示', {
+				type: 'warning'
+			});
+			if(sure!="confirm")return;			
+			var query = {};
+			query.courseId = res;
+			var { data: res1 } = await BuyCourse(query);
+			// console.log(res1);
+			if (res1.code == 1) {
+				this.$message.success('购买成功！');
+				this.isMyCourse = true;
+			}
+		}
 	}
 };
 </script>
@@ -177,7 +197,7 @@ li {
 .buy a:-webkit-any-link {
 	color: #ffffff;
 }
-.buy button{
+.buy button {
 	display: block;
 	float: right;
 	margin-right: 100px;
