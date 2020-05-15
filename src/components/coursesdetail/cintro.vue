@@ -4,15 +4,15 @@
 					
 					<ul>
 						<li><img src="../../assets/play.png" alt="" /></li>
-						<li><el-button type="text" @click="dialogVisible = true">点击播放视频</el-button></li>
-						<el-dialog class="playbox" title="课程视频" :visible.sync="dialogVisible" width="60%" :before-close="handleClose">
+						<!-- <li><el-button type="text" @click="dialogVisible = true">点击播放视频</el-button></li> -->
+						<!-- <el-dialog class="playbox" title="课程视频" :visible.sync="dialogVisible" width="60%" :before-close="handleClose">
 							<span><videoplay></videoplay></span>
 							<span class="coursetitle">这是课程标题</span>
 							<span slot="footer" class="dialog-footer">
 								<el-button type="primary" @click="dialogVisible = false">下 载</el-button>
 								<el-button @click="dialogVisible = false">关 闭</el-button>
 							</span>
-						</el-dialog>
+						</el-dialog> -->
 					</ul>
 					<div class="intro">
 						<p v-html='dataList.course.remark'></p>
@@ -70,7 +70,8 @@
 						if (p.data.code != 1) this.$message.error('获取信息失败');
 						this.dataList = p.data.data;
 					});
-				}
+				},
+				
 			}	
 	};
 </script>

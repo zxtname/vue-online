@@ -39,7 +39,9 @@
 					<p class="price-text">商品总金额：</p>
 				</div>
 				<div class="pay-btn">
+					<!-- <router-link tag="a" :to="{ name: 'pay' }" class="payA" > -->
 					<a>确认支付</a>
+					<!-- </router-link> -->
 				</div>
 
 			</div>

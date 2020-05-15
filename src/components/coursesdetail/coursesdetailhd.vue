@@ -52,8 +52,10 @@
 					<li><p>|</p></li>
 				</ul>
 			</div>
-			<div class="buy">
-				<router-link tag="a" :to="{ name: 'pay' }" class="payA"><a>立即购买</a></router-link>
+			<div class="buy" @click="paidornot()">
+				<router-link tag="a" :to="{ name: 'pay' }" class="payA" >
+					<button :btnText="btnText">立即购买</button>
+				</router-link>
 			</div>
 		</div>
 	</div>
@@ -68,6 +70,27 @@ export default {
 				return {};
 			}
 		}
+	},
+	data(){
+		cond = false;
+	},
+	methods:{
+		
+			
+			// paidornot(){
+			// 	var pay= this.cond;
+			// 	if (pay == false) {
+					
+			// 		this.btnText = '立即购买';
+			// 		this.disabled = true;
+			// 	} else {
+					
+			// 		this.btnText = '已购买';
+			// 		this.disabled = false;
+					
+			// 	}
+			// },
+		
 	}
 };
 </script>
@@ -154,7 +177,7 @@ li {
 .buy a:-webkit-any-link {
 	color: #ffffff;
 }
-.buy {
+.buy button{
 	display: block;
 	float: right;
 	margin-right: 100px;

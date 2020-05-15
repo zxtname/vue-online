@@ -80,6 +80,9 @@ export default {
 </script>
 
 <style scoped>
+	li{
+		list-style: none;
+	}
 .chapters {
 	margin-left: -35px;
 }
